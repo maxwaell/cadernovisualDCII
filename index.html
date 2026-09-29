@@ -1,0 +1,1211 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Direito Civil II — Caderno Visual para a P1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;700;800&family=Caveat:wght@600;700&family=Bangers&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eaf0f7;--paper:#fbfcfe;--ink:#14213d;--muted:#56627a;--line:#ccd6e6;--grid:#d9e2ef;--hl:#ffe45e;--hl-ink:#14213d;
+  --shadow:0 12px 26px -18px rgba(20,33,61,.55);
+  --sans:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --hand:"Caveat","Segoe Print","Comic Sans MS",cursive;
+  --comic:"Bangers","Comic Sans MS",Impact,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0e1424;--paper:#171e33;--ink:#e9edf7;--muted:#a2adc6;--line:#2c3656;--grid:#182038;--hl:#6b5a0c;--hl-ink:#fff6c8;--shadow:0 12px 26px -18px rgba(0,0,0,.9)}
+}
+:root[data-theme="dark"]{--bg:#0e1424;--paper:#171e33;--ink:#e9edf7;--muted:#a2adc6;--line:#2c3656;--grid:#182038;--hl:#6b5a0c;--hl-ink:#fff6c8;--shadow:0 12px 26px -18px rgba(0,0,0,.9)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+body{margin:0;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px;color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-text-size-adjust:100%}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px 60px}
+h1,h2,h3,h4{font-family:var(--head);line-height:1.15;margin:0}
+p{margin:.5rem 0}
+b,strong{font-weight:800}
+a{color:inherit}
+:focus-visible{outline:3px solid #ff7aa8;outline-offset:2px}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:2px solid var(--ink);display:flex;gap:8px;align-items:center;padding:8px 12px}
+.bar .brand{font-family:var(--head);font-weight:800;white-space:nowrap}
+.bar nav{display:flex;gap:6px;overflow-x:auto;flex:1;scrollbar-width:none;padding:2px}
+.bar nav a{flex:none;text-decoration:none;font-weight:800;font-size:.9rem;padding:.25rem .65rem;border-radius:999px;border:2px solid var(--ink);background:var(--paper)}
+.bar nav a.ok::after{content:" ✓";color:#1a8a4a}
+.bar button{flex:none;font:inherit;font-weight:800;border:2px solid var(--ink);background:var(--hl);color:var(--hl-ink);border-radius:10px;padding:.2rem .6rem;cursor:pointer}
+
+/* hero */
+.hero{margin:22px 0 18px;padding:22px 20px;background:var(--paper);border:3px solid var(--ink);border-radius:18px;box-shadow:8px 8px 0 var(--ink)}
+.hero h1{font-size:clamp(1.9rem,6vw,3.2rem);font-weight:800}
+.hero h1 mark{background:var(--hl);color:var(--hl-ink);padding:0 .25em;border-radius:6px}
+.hero p.sub{color:var(--muted);font-size:1.05rem;max-width:62ch}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+.legend span{font-size:.85rem;font-weight:700;padding:.2rem .6rem;border-radius:8px;border:2px solid var(--ink);background:var(--bg)}
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:18px 0 8px}
+.toc a{display:flex;gap:10px;align-items:center;text-decoration:none;background:var(--paper);border:2px solid var(--ink);border-left:10px solid var(--c);border-radius:12px;padding:.55rem .8rem}
+.toc a b{font-family:var(--comic);font-size:1.7rem;color:var(--c);font-weight:400;letter-spacing:.03em}
+.toc a small{display:block;color:var(--muted);font-size:.8rem;line-height:1.2}
+
+/* aula */
+.aula{margin:44px 0;--soft:color-mix(in srgb,var(--acc) 12%,var(--paper));--acct:color-mix(in srgb,var(--acc) 72%,var(--ink))}
+.ah{display:flex;gap:16px;align-items:center;background:var(--acc);color:#fff;border:3px solid var(--ink);border-radius:18px 18px 0 0;padding:16px 18px;position:relative;flex-wrap:wrap}
+.ah .num{font-family:var(--comic);font-size:4rem;line-height:.9;opacity:.9;letter-spacing:.03em}
+.ah h2{font-size:clamp(1.25rem,3.6vw,1.9rem);font-weight:800;color:#fff}
+.ah .date{font-weight:700;opacity:.92;font-size:.9rem}
+.ah .txt{flex:1;min-width:220px}
+.ah .refs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ah .refs span{background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.7);border-radius:999px;padding:.05rem .6rem;font-size:.78rem;font-weight:700}
+.ah .done{font:inherit;font-weight:800;background:#fff;color:#14213d;border:2px solid #14213d;border-radius:10px;padding:.3rem .7rem;cursor:pointer}
+.ah .done.on{background:#b8f2c9}
+.body{background:color-mix(in srgb,var(--paper) 88%,transparent);border:3px solid var(--ink);border-top:0;border-radius:0 0 18px 18px;padding:6px 18px 22px;box-shadow:8px 8px 0 var(--ink)}
+h3{font-size:1.35rem;font-weight:800;margin:1.9rem 0 .6rem;display:flex;gap:.6rem;align-items:center}
+h3 .n{flex:none;width:2rem;height:2rem;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-size:1rem;font-family:var(--comic);font-weight:400}
+h4{font-size:1.05rem;color:var(--acct);margin:.9rem 0 .3rem}
+.chip{display:inline-block;padding:.1rem .6rem;border-radius:999px;background:var(--soft);border:1.5px solid var(--acc);font-size:.84rem;font-weight:700;margin:2px 2px 2px 0}
+ul.tight{margin:.3rem 0;padding-left:1.2rem}
+ul.tight li{margin:.15rem 0}
+small,.sm{font-size:.86rem;color:var(--muted)}
+
+/* callouts */
+.call{border:2px solid var(--ink);border-left-width:8px;border-radius:12px;padding:.55rem .9rem;margin:1rem 0;background:var(--paper)}
+.call .lb{display:block;font-family:var(--head);font-weight:800;font-size:.95rem;margin-bottom:.15rem}
+.call.prof{border-left-color:#1c7ed6}
+.call.prova{border-left-color:#d6336c;background:color-mix(in srgb,#d6336c 8%,var(--paper))}
+.call.warn{border-left-color:#f08c00;background:color-mix(in srgb,#f08c00 10%,var(--paper))}
+.call.extra{border-style:dashed;border-left-style:solid;border-left-color:#7a8599}
+.call.mnem{border-color:var(--ink);border-left-color:#ffb700;background:var(--hl);color:var(--hl-ink);font-family:var(--hand);font-size:1.3rem;line-height:1.25}
+.call.mnem .lb{font-family:var(--head);font-size:.95rem}
+.call.mnem b{font-weight:700;text-decoration:underline wavy #d6336c;text-underline-offset:3px}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px;margin:.8rem 0}
+.card{background:var(--paper);border:2px solid var(--ink);border-top:8px solid var(--acc);border-radius:12px;padding:.6rem .8rem;box-shadow:4px 4px 0 color-mix(in srgb,var(--ink) 85%,transparent)}
+.card .ic{font-size:1.7rem;line-height:1}
+.card h4{margin:.2rem 0;color:var(--ink);font-size:1.05rem}
+.card p{margin:.2rem 0;font-size:.95rem}
+.card .ex{font-size:.86rem;color:var(--muted)}
+.card.c2{border-top-color:var(--acc2)}
+
+/* vs */
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch;margin:.9rem 0}
+.vs .side{border:2px solid var(--ink);border-radius:14px;padding:.6rem .9rem;background:color-mix(in srgb,var(--c) 11%,var(--paper));border-top:8px solid var(--c)}
+.vs .a{--c:var(--acc)}.vs .b{--c:var(--acc2,#e8590c)}
+.vs .side h4{color:color-mix(in srgb,var(--c) 70%,var(--ink));margin:0 0 .3rem;font-size:1.1rem}
+.vs .side ul{margin:.2rem 0;padding-left:1.1rem;font-size:.95rem}
+.vs .x{align-self:center;font-family:var(--comic);font-size:1.6rem;background:var(--hl);color:var(--hl-ink);border:2px solid var(--ink);border-radius:50%;width:2.6rem;height:2.6rem;display:grid;place-items:center}
+
+/* tables */
+.tw{overflow-x:auto;margin:.8rem 0;border:2px solid var(--ink);border-radius:12px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.93rem}
+th{background:var(--acc);color:#fff;text-align:left;padding:.45rem .6rem;font-family:var(--head)}
+td{padding:.45rem .6rem;border-top:1.5px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--acc) 5%,var(--paper))}
+td:first-child{font-weight:800}
+
+/* mind map */
+.mm{display:grid;grid-template-columns:1fr 170px 1fr;margin:1rem 0;align-items:center}
+.mm .col{position:relative;display:flex;flex-direction:column;gap:12px;justify-content:center}
+.mm .col.l{padding-right:38px}.mm .col.r{padding-left:38px}
+.mm .col::after{content:"";position:absolute;top:9%;bottom:9%;border-left:3px solid var(--acc)}
+.mm .col.l::after{right:0}.mm .col.r::after{left:0}
+.mm .br{position:relative;background:var(--soft);border:2px solid var(--ink);border-left:8px solid var(--acc);border-radius:12px;padding:.45rem .7rem;font-size:.9rem;line-height:1.35}
+.mm .br b{display:block;font-size:.98rem;color:var(--acct)}
+.mm .col.l .br::after,.mm .col.r .br::after{content:"";position:absolute;top:50%;width:38px;border-top:3px solid var(--acc)}
+.mm .col.l .br::after{left:100%}.mm .col.r .br::after{right:100%}
+.mm .core{background:var(--acc);color:#fff;border:3px solid var(--ink);border-radius:50% / 40%;padding:1rem .6rem;text-align:center;font-family:var(--head);font-weight:800;line-height:1.15;box-shadow:5px 5px 0 var(--ink)}
+.mm .core span{display:block;font-size:2rem}
+.mm.one{grid-template-columns:1fr}
+@media(max-width:760px){
+  .mm{grid-template-columns:1fr;gap:10px}
+  .mm .core{order:-1;border-radius:16px}
+  .mm .col.l,.mm .col.r{padding:0}
+  .mm .col::after,.mm .col .br::after{display:none}
+}
+
+/* tree */
+.tree,.tree ul{list-style:none;margin:0;padding-left:1.2rem;border-left:3px dashed color-mix(in srgb,var(--acc) 60%,var(--line))}
+.tree{border-left:0;padding-left:0}
+.tree li{position:relative;padding:.25rem 0 .25rem .95rem}
+.tree ul li::before{content:"";position:absolute;left:0;top:1.15rem;width:.8rem;border-top:3px dashed color-mix(in srgb,var(--acc) 60%,var(--line))}
+.tree .nd{display:inline-block;border:2px solid var(--ink);border-radius:10px;padding:.15rem .6rem;background:var(--paper);font-weight:700;font-size:.93rem}
+.tree .nd.k{background:var(--acc);color:#fff}
+.tree .nd.s{background:var(--soft)}
+.tree .nd.w{background:var(--hl);color:var(--hl-ink)}
+.tree .ex{font-size:.85rem;color:var(--muted);margin-left:.4rem}
+
+/* timeline */
+ol.tl{list-style:none;margin:.8rem 0;padding:0 0 0 1.6rem;border-left:4px solid var(--acc)}
+ol.tl li{position:relative;padding:.3rem 0 .6rem .4rem}
+ol.tl li::before{content:"";position:absolute;left:-2.15rem;top:.55rem;width:1rem;height:1rem;border-radius:50%;background:var(--paper);border:4px solid var(--acc)}
+ol.tl li b{color:var(--acct)}
+
+/* comic */
+.comic{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:1rem 0}
+.panel{background:color-mix(in srgb,var(--acc) 14%,var(--paper));border:4px solid var(--ink);border-radius:6px;padding:34px 10px 10px;position:relative;display:flex;flex-direction:column;gap:8px;min-height:190px}
+.panel .cap{position:absolute;left:-4px;top:-4px;background:var(--hl);color:var(--hl-ink);border:3px solid var(--ink);font-family:var(--comic);letter-spacing:.04em;font-size:.95rem;padding:.05rem .5rem;max-width:calc(100% - 20px)}
+.panel .scene{font-size:2.1rem;text-align:center;line-height:1.1}
+.say{display:flex;gap:8px;align-items:flex-start}
+.say .who{font-size:1.6rem;flex:none;line-height:1}
+.say .bub{position:relative;background:var(--paper);border:2.5px solid var(--ink);border-radius:14px;padding:.3rem .6rem;font-size:.92rem;line-height:1.3;font-weight:600}
+.say .bub::before{content:"";position:absolute;left:-8px;top:10px;width:12px;height:12px;background:var(--paper);border-left:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(45deg)}
+.panel .end{font-family:var(--comic);letter-spacing:.03em;text-align:center;font-size:1.05rem;color:var(--acct)}
+
+/* misc visuals */
+.blocks3{display:grid;grid-template-columns:1fr 1fr 1fr;margin:1rem 0;border:3px solid var(--ink);border-radius:40px;overflow:hidden}
+.blocks3>div{padding:.8rem 1rem;font-size:.92rem}
+.blocks3 .l{background:color-mix(in srgb,var(--acc) 22%,var(--paper))}
+.blocks3 .m{background:var(--hl);color:var(--hl-ink);border-left:3px solid var(--ink);border-right:3px solid var(--ink)}
+.blocks3 .r{background:color-mix(in srgb,var(--acc2) 22%,var(--paper))}
+.blocks3 h4{margin:0 0 .2rem;color:inherit}
+.blocks3 ul{margin:0;padding-left:1rem}
+.nest{border:3px solid var(--ink);border-radius:26px;padding:12px 12px 12px;background:color-mix(in srgb,var(--acc) 12%,var(--paper))}
+.nest .in{border:3px solid var(--ink);border-radius:20px;padding:10px 12px;margin-top:8px;background:color-mix(in srgb,var(--acc) 26%,var(--paper))}
+.nest .in .in{background:color-mix(in srgb,var(--acc) 48%,var(--paper))}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:.8rem 0}
+.flow .bx{background:var(--paper);border:2px solid var(--ink);border-radius:12px;padding:.35rem .7rem;font-weight:700;font-size:.92rem;text-align:center}
+.flow .bx.k{background:var(--acc);color:#fff}
+.flow .ar{font-weight:800;color:var(--acct);font-size:.85rem;text-align:center}
+.flow.col{flex-direction:column;align-items:stretch}
+.lane{display:flex;border:2px solid var(--ink);border-radius:10px;overflow:hidden;margin:.3rem 0;font-size:.86rem;font-weight:700}
+.lane div{padding:.4rem .5rem;text-align:center}
+.lane .off{background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--muted) 30%,var(--paper)),color-mix(in srgb,var(--muted) 30%,var(--paper)) 8px,var(--paper) 8px,var(--paper) 16px)}
+.lane .on{background:var(--acc);color:#fff}
+.lane .ev{background:var(--hl);color:var(--hl-ink);border-left:3px solid var(--ink);border-right:3px solid var(--ink)}
+.ruler{display:flex;border:2px solid var(--ink);border-radius:10px;overflow:hidden;font-size:.85rem;font-weight:800;text-align:center}
+.ruler div{padding:.5rem .3rem}
+.stairs .st{border:2px solid var(--ink);border-radius:12px;padding:.5rem .8rem;margin:.5rem 0 .5rem calc(var(--i)*7%);background:color-mix(in srgb,var(--acc) calc(10% + var(--i)*10%),var(--paper))}
+.stairs .st small{display:block}
+.fig{width:100%;max-width:300px;height:auto;display:block;margin:0 auto;color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.scale{display:flex;flex-direction:column;gap:6px;margin:.6rem 0}
+.scale .row{display:grid;grid-template-columns:130px 1fr;gap:8px;align-items:center;font-weight:700;font-size:.9rem}
+.scale .track{background:var(--bg);border:2px solid var(--ink);border-radius:8px;height:1.4rem;overflow:hidden}
+.scale .fill{height:100%;background:var(--acc);}
+.spec{display:flex;gap:6px;margin:.6rem 0;font-size:.82rem;font-weight:800;text-align:center}
+.spec div{flex:1;padding:.4rem .3rem;border:2px solid var(--ink);border-radius:8px}
+.path{counter-reset:p;list-style:none;padding:0;margin:.8rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+.path li{counter-increment:p;background:var(--paper);border:2px solid var(--ink);border-radius:12px;padding:.5rem .7rem .5rem 3rem;position:relative;font-size:.92rem}
+.path li::before{content:counter(p);position:absolute;left:.6rem;top:.5rem;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--acc);color:#fff;font-family:var(--comic);display:grid;place-items:center}
+.rv{filter:blur(6px);cursor:pointer;transition:filter .2s;user-select:none}
+.rv.on{filter:none;user-select:auto}
+
+/* QA */
+.qa{margin:.5rem 0;border:2px solid var(--ink);border-radius:12px;background:var(--paper);overflow:hidden}
+.qa summary{cursor:pointer;font-weight:800;padding:.55rem .8rem;list-style:none;display:flex;gap:.6rem}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::before{content:"❓";flex:none}
+.qa[open] summary{background:var(--soft)}
+.qa[open] summary::before{content:"✅"}
+.qa .ans{padding:.2rem .9rem .7rem}
+.qa .pt{font-size:.9rem;background:var(--hl);color:var(--hl-ink);border-radius:8px;padding:.3rem .6rem}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:.3rem 0 .6rem}
+.tools button{font:inherit;font-weight:800;border:2px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:10px;padding:.25rem .7rem;cursor:pointer}
+
+.final h2{font-size:1.8rem;margin:2rem 0 .6rem}
+footer{text-align:center;margin:40px 0 10px;font-family:var(--hand);font-size:1.5rem}
+footer small{display:block;font-family:var(--sans);font-size:.8rem;margin-top:6px}
+
+@media(max-width:640px){
+  body{font-size:16px}
+  .vs{grid-template-columns:1fr}.vs .x{margin:0 auto}
+  .blocks3{grid-template-columns:1fr;border-radius:22px}
+  .blocks3 .m{border:0;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+  .two{grid-template-columns:1fr}
+  .bar .brand{display:none}
+  .ah .num{font-size:3rem}
+  .body{padding:4px 12px 18px}
+  .stairs .st{margin-left:calc(var(--i)*4%)}
+}
+@media print{.bar,.tools,.done{display:none!important}body{background:#fff}.qa .ans{display:block}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{transition:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="omnes" viewBox="0 0 220 160">
+      <g stroke="currentColor" stroke-width="2" stroke-dasharray="5 4" opacity=".7">
+        <line x1="110" y1="80" x2="198" y2="80"/><line x1="110" y1="80" x2="181" y2="114"/><line x1="110" y1="80" x2="137" y2="135"/><line x1="110" y1="80" x2="83" y2="135"/><line x1="110" y1="80" x2="39" y2="114"/><line x1="110" y1="80" x2="22" y2="80"/><line x1="110" y1="80" x2="39" y2="46"/><line x1="110" y1="80" x2="83" y2="25"/><line x1="110" y1="80" x2="137" y2="25"/><line x1="110" y1="80" x2="181" y2="46"/>
+      </g>
+      <g fill="currentColor" opacity=".55"><circle cx="198" cy="80" r="8"/><circle cx="181" cy="114" r="8"/><circle cx="137" cy="135" r="8"/><circle cx="83" cy="135" r="8"/><circle cx="39" cy="114" r="8"/><circle cx="22" cy="80" r="8"/><circle cx="39" cy="46" r="8"/><circle cx="83" cy="25" r="8"/><circle cx="137" cy="25" r="8"/><circle cx="181" cy="46" r="8"/></g>
+      <circle cx="110" cy="80" r="18" fill="#ffe45e" stroke="currentColor" stroke-width="3"/>
+      <text x="110" y="86" text-anchor="middle" font-size="16">👤</text>
+    </symbol>
+    <symbol id="partes" viewBox="0 0 220 160">
+      <line x1="55" y1="80" x2="165" y2="80" stroke="currentColor" stroke-width="5"/>
+      <circle cx="55" cy="80" r="22" fill="#ffe45e" stroke="currentColor" stroke-width="3"/>
+      <circle cx="165" cy="80" r="22" fill="#ffe45e" stroke="currentColor" stroke-width="3"/>
+      <text x="55" y="87" text-anchor="middle" font-size="20">👤</text>
+      <text x="165" y="87" text-anchor="middle" font-size="20">👤</text>
+      <g fill="currentColor" opacity=".25"><circle cx="110" cy="22" r="8"/><circle cx="110" cy="138" r="8"/><circle cx="20" cy="30" r="8"/><circle cx="200" cy="130" r="8"/></g>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="bar">
+  <span class="brand">⚖️ Civil II</span>
+  <nav id="nav">
+    <a href="#a1" data-a="a1">Aula 1</a><a href="#a2" data-a="a2">2</a><a href="#a3" data-a="a3">3</a><a href="#bens">🗺️ Bens</a><a href="#a4" data-a="a4">4</a><a href="#a5" data-a="a5">5</a><a href="#a6" data-a="a6">6</a><a href="#a7" data-a="a7">7</a><a href="#a8" data-a="a8">8</a><a href="#cola">🧠 Cola</a><a href="#conferir">⚠️ Conferir</a>
+  </nav>
+  <button id="theme" type="button" aria-label="Alternar tema claro/escuro">🌓</button>
+</header>
+
+<div class="wrap">
+
+<section class="hero">
+  <h1>Direito Civil II: <mark>caderno visual</mark> para a P1</h1>
+  <p class="sub">A apostila inteira (aulas 01 a 08, de 04/08 a 22/09/2026) reorganizada em mapas mentais, comparativos, quadrinhos e mnemônicos. Tudo o que estava no texto corrido continua aqui, e as suas adições estão marcadas.</p>
+  <div class="legend">
+    <span>🗣️ Fala do professor</span><span>🎯 Como cai em prova</span><span>🧠 Mnemônico</span><span>⚠️ Conferir com a professora</span><span>➕ Extra (fora da apostila)</span><span>✅ Testar-se (clique nas perguntas)</span>
+  </div>
+  <div class="toc">
+    <a href="#a1" style="--c:#7c5cff"><b>01</b><span>Direitos da personalidade<small>04/08</small></span></a>
+    <a href="#a2" style="--c:#0f9d8a"><b>02</b><span>Situações jurídicas e objetos<small>11/08</small></span></a>
+    <a href="#a3" style="--c:#b45f06"><b>03</b><span>Classificação dos bens<small>18/08</small></span></a>
+    <a href="#a4" style="--c:#d64545"><b>04</b><span>Fatos, atos e negócios<small>25/08</small></span></a>
+    <a href="#a5" style="--c:#1c7ed6"><b>05</b><span>Estrutura do negócio jurídico<small>01/09</small></span></a>
+    <a href="#a6" style="--c:#2f9e44"><b>06</b><span>Vontade, declaração e forma<small>08/09</small></span></a>
+    <a href="#a7" style="--c:#c2255c"><b>07</b><span>Condição, termo e encargo<small>15/09</small></span></a>
+    <a href="#a8" style="--c:#5f3dc4"><b>08</b><span>Representação<small>22/09</small></span></a>
+  </div>
+</section>
+
+<!-- ============================ AULA 1 ============================ -->
+<section class="aula" id="a1" style="--acc:#7c5cff;--acc2:#e8590c">
+<header class="ah"><div class="num">01</div><div class="txt"><div class="date">04/08/2026</div><h2>Direitos da Personalidade e Direito Natural</h2>
+<div class="refs"><span>CC arts. 11 a 21</span><span>CF art. 5º (caput, III, X, XI, XII, XLVII "a")</span><span>Lei 9.610/1998</span><span>Declaração de 1789</span></div></div>
+<button class="done" data-a="a1" type="button">☐ Revisada</button></header>
+<div class="body">
+
+<h3><span class="n">1</span>Direito natural × direito da personalidade</h3>
+<div class="vs">
+  <div class="side a"><h4>🌿 Direito natural</h4><ul><li>Ordem de valores ligada à <b>justiça</b></li><li>Fundamento filosófico: precederia e legitimaria o direito positivo</li><li>Nem tudo que ele justifica vira direito da personalidade positivado</li></ul></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>🧍 Direito da personalidade</h4><ul><li>Conjunto de direitos <b>reconhecidos pelo ordenamento</b> como inerentes à condição humana</li><li>Extensão <b>varia de país para país</b> (imagem e privacidade nem sempre são protegidas com a mesma amplitude)</li></ul></div>
+</div>
+<div class="call prof"><span class="lb">🗣️ Fala do professor</span>Direitos da personalidade não são sobrenaturais nem decorrem simplesmente da natureza. São inerentes à condição humana e <b>reconhecidos pelo ordenamento jurídico</b>.</div>
+<div class="call"><span class="lb">🦁 Exemplo para não confundir</span>O "direito" de um animal matar para se alimentar decorre da natureza, mas não é direito da personalidade. O que caracteriza o direito da personalidade é o reconhecimento, pelo ordenamento, de uma <b>esfera mínima de proteção da pessoa</b>.</div>
+
+<h3><span class="n">2</span>Desenvolvimento histórico</h3>
+<ol class="tl">
+  <li><b>Doutrina lenta:</b> demorou a reconhecer os direitos da personalidade como categoria jurídica autônoma.</li>
+  <li><b>1896, BGB alemão:</b> paradigma da codificação moderna, mas não os previu como categoria geral.</li>
+  <li><b>Kant:</b> fundamento mais influente. A pessoa tem características próprias e inerentes, que a distinguem de qualquer objeto de direito. Não pode ser tratada como simples meio.</li>
+  <li><b>Séculos XVIII e XIX:</b> Revolução Francesa, Declaração de 1789 e Declaração de Independência americana. O Estado deve <b>respeitar e proteger</b> esses direitos, e não apenas conceder.</li>
+</ol>
+
+<h3><span class="n">3</span>Três autores, três definições</h3>
+<div class="cards">
+  <div class="card"><div class="ic">📏</div><h4>Adriano de Cupis <small>(Itália)</small></h4><p>Direitos subjetivos <b>mínimos e essenciais</b> para o reconhecimento da personalidade jurídica, inerentes à pessoa.</p></div>
+  <div class="card"><div class="ic">🧩</div><h4>Francisco Amaral</h4><p>Direitos subjetivos cujo objeto são <b>bens e valores essenciais</b> à pessoa nos aspectos <b>físico, moral e intelectual</b>.</p></div>
+  <div class="card"><div class="ic">🌉</div><h4>Pontes de Miranda</h4><p><b>Todos</b> os direitos necessários à realização da personalidade. Categoria <b>aberta</b>, que se renova com a sociedade e a tecnologia (ex.: imagem nas redes sociais).</p></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>Cupis</b> = <b>cu</b>rto (mínimo). <b>Amaral</b> = <b>3</b> aspectos (físico, moral, intelectual). <b>Pontes</b> = uma <b>ponte aberta</b> para o futuro. Na prova, destaque que Pontes de Miranda é o único que abre o rol.</div>
+
+<h3><span class="n">4</span>Conteúdo: o mapa dos direitos da personalidade</h3>
+<div class="mm">
+  <div class="col l">
+    <div class="br"><b>🫀 Vida e integridade física</b></div>
+    <div class="br"><b>🕊️ Liberdade</b>agir, pensar, religiosa, política, sexual</div>
+    <div class="br"><b>⚖️ Honra, dignidade e reputação social</b></div>
+    <div class="br"><b>🪪 Nome</b>prenome, nome de família e pseudônimo</div>
+  </div>
+  <div class="core"><span>🧍</span>Direitos da personalidade<br><small style="color:#fff;opacity:.9">rol aberto</small></div>
+  <div class="col r">
+    <div class="br"><b>📸 Imagem</b></div>
+    <div class="br"><b>🔒 Privacidade e intimidade</b></div>
+    <div class="br"><b>✉️ Sigilo das comunicações</b></div>
+    <div class="br"><b>🎨 Criação intelectual</b>direitos autorais e propriedade intelectual</div>
+  </div>
+</div>
+
+<h3><span class="n">5</span>Características</h3>
+<p>Os direitos da personalidade são <b>inerentes à pessoa</b> e não podem ser transferidos, renunciados nem extintos pelo simples não uso.</p>
+<div class="cards">
+  <div class="card"><div class="ic">👤</div><h4>Personalíssimos</h4><p>Ligados à pessoa do titular e inseparáveis dela. Só o titular os exerce.</p><p class="ex">Exceção: incapaz ou falecido, defendidos pelos legitimados. Ex.: honra, imagem.</p></div>
+  <div class="card"><div class="ic">🚫</div><h4>Intransmissíveis</h4><p>Não podem ser cedidos ou transferidos a terceiros.</p><p class="ex">Ex.: nome, honra, imagem.</p></div>
+  <div class="card"><div class="ic">⏳</div><h4>Imprescritíveis</h4><p>Não se perdem pelo decurso do tempo nem pelo não uso.</p></div>
+  <div class="card"><div class="ic">🙅</div><h4>Irrenunciáveis</h4><p>O titular <b>não pode abrir mão</b> deles (a renúncia é ato do próprio titular).</p></div>
+  <div class="card"><div class="ic">🌐</div><h4>Absolutos</h4><p>Eficácia <b>erga omnes</b>: devem ser respeitados por todas as pessoas. Veja o quadro abaixo.</p></div>
+  <div class="card"><div class="ic">🔒</div><h4>Indisponíveis</h4><p>Não podem ser objeto de negociação ou alienação.</p></div>
+  <div class="card"><div class="ic">🪙</div><h4>Extrapatrimoniais</h4><p>Não têm conteúdo econômico em si. Integram o <b>patrimônio jurídico</b>, mas não o econômico (aula 2).</p><p class="ex">A lesão gera reparação, sem que o direito passe a ser patrimonial.</p></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span>Os direitos da personalidade são o <b>PAI com 4 I</b>. <b>P</b>ersonalíssimo, <b>A</b>bsoluto, <b>E</b>xtrapatrimonial (PAE, lê-se "pai"), mais os 4 "I" que dizem "não": <b>I</b>ntransmissível, <b>I</b>rrenunciável, <b>I</b>mprescritível, <b>I</b>ndisponível.</div>
+<div class="call"><span class="lb">Irrenunciável × indisponível</span><b>Irrenunciável:</b> não posso abrir mão (ato unilateral). <b>Indisponível:</b> não posso negociar, alienar ou dispor. A professora quer ver que você não os confunde.</div>
+<div class="call extra"><span class="lb">➕ Extra</span>A imprescritibilidade é do <b>direito</b>. A <b>pretensão de reparação</b> por uma lesão já sofrida tem prazo prescricional próprio. O exercício pode sofrer limitação voluntária apenas se for pontual e não permanente (ex.: autorizar o uso da imagem para um anúncio específico).</div>
+
+<h4>Absolutos: erga omnes × inter partes</h4>
+<div class="two">
+  <div class="card"><svg class="fig" viewBox="0 0 220 160" role="img" aria-label="Um titular com deveres de respeito de todos"><use href="#omnes"/></svg><h4>Erga omnes ("contra todos")</h4><p><b>Sujeito passivo:</b> todos (coletividade indeterminada).</p><p><b>Dever:</b> abstenção geral, isto é, respeitar.</p><p class="ex">Direitos da personalidade, direitos reais. Ex.: honra, imagem, propriedade.</p></div>
+  <div class="card c2"><svg class="fig" viewBox="0 0 220 160" role="img" aria-label="Dois sujeitos ligados por um vínculo"><use href="#partes"/></svg><h4>Inter partes ("entre as partes")</h4><p><b>Sujeito passivo:</b> pessoa determinada.</p><p><b>Dever:</b> prestação (dar, fazer, não fazer).</p><p class="ex">Direitos pessoais e de crédito. Ex.: compra e venda, contrato.</p></div>
+</div>
+<div class="call"><span class="lb">🔗 Onde isso reaparece</span><b>Aula 2:</b> situação jurídica não relacional (dever geral de abstenção). <b>Aula 3:</b> direitos reais (erga omnes) × pessoais (inter partes). <b>Cuidado:</b> "absoluto" quer dizer oponível a todos, não que seja <b>ilimitado</b>. Um direito da personalidade pode colidir com outro e ser ponderado.</div>
+
+<h3><span class="n">6</span>Inatos × derivados</h3>
+<div class="vs">
+  <div class="side a"><h4>🌱 Inatos (originários)</h4><ul><li>Nascem com a pessoa, sem depender de ato ou fato posterior</li><li>Ex.: vida, integridade física e psíquica, liberdade, honra, intimidade</li></ul></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>🛠️ Derivados (adquiridos)</h4><ul><li>Surgem de um fato, ato ou reconhecimento posterior</li><li>Ex.: nome (registro civil), pseudônimo (escolhido pelo artista), direito autoral (nasce com a criação da obra)</li></ul></div>
+</div>
+<div class="call extra"><span class="lb">➕ Adicionado a seu pedido</span>Esta classificação não consta na apostila e os autores variam nos exemplos. Confira com seu caderno de aula ou manual. Regra prática: <b>inato = já nasce com você; derivado = depende de algo que acontece depois</b>.</div>
+
+<h3><span class="n">7</span>Direitos fundamentais × direitos da personalidade</h3>
+<div class="blocks3">
+  <div class="l"><h4>Só fundamental</h4><ul><li>Contraditório</li><li>Ampla defesa</li></ul><small>direitos-garantia, de natureza processual</small></div>
+  <div class="m"><h4>Interseção</h4><ul><li>Vida</li><li>Privacidade</li><li>Honra</li></ul><small>protegidos pelo art. 5º da CF e inerentes à pessoa</small></div>
+  <div class="r"><h4>Só da personalidade</h4><ul><li>Nome</li><li>Direitos autorais e de imagem, conforme o ordenamento civil</li></ul></div>
+</div>
+<div class="call prova"><span class="lb">🎯 Como cai em prova</span>Nem todo direito fundamental é direito da personalidade. <b>Contraditório e ampla defesa</b> são direitos-garantia, não posições inerentes à pessoa em si.</div>
+
+<h3><span class="n">8</span>Imagem, redes sociais e proteção depois da morte</h3>
+<div class="comic">
+  <div class="panel"><div class="cap">1. NO EVENTO</div><div class="scene">📸🎉</div><div class="say"><div class="who">🧑‍🎤</div><div class="bub">Fotografaram minha imagem em um evento público.</div></div></div>
+  <div class="panel"><div class="cap">2. NO ANÚNCIO</div><div class="scene">📱💰</div><div class="say"><div class="who">🏢</div><div class="bub">Usamos a foto na nossa propaganda. Sem pedir, claro.</div></div></div>
+  <div class="panel"><div class="cap">3. O DIREITO REAGE</div><div class="scene">⚖️</div><div class="say"><div class="who">👩‍⚖️</div><div class="bub">Uso não autorizado viola direito da personalidade e enseja <b>reparação</b>.</div></div></div>
+  <div class="panel"><div class="cap">4. E DEPOIS DA MORTE?</div><div class="scene">🕯️👨‍👩‍👧</div><div class="say"><div class="who">👨‍👩‍👧</div><div class="bub">Nós, sucessores, agimos por 70 anos, segundo a apostila.</div></div></div>
+</div>
+<div class="call warn"><span class="lb">⚠️ Conferir</span>A apostila diz que <b>direitos autorais e de imagem</b> ficam protegidos por 70 anos após a morte. Na Lei 9.610/98, o prazo de 70 anos vale para os <b>direitos patrimoniais de autor</b>. Para a imagem, o CC (arts. 12 e 20, parágrafo único) dá legitimidade a cônjuge, ascendentes e descendentes, sem prazo fixo. Peça esclarecimento para não errar na prova.</div>
+<h4>Quem pode defender? (legitimidade)</h4>
+<div class="flow"><div class="bx k">Regra: o próprio titular</div><div class="ar">se incapaz ou morto ➜</div><div class="bx">Descendentes, ascendentes e outros indicados em lei</div><div class="ar">agem em defesa dos direitos da pessoa incapaz ou falecida</div></div>
+<div class="call prova"><span class="lb">🎯 Ponto de atenção</span>Relacione os 70 anos à <b>legitimidade sucessória</b>. É a extensão temporal da proteção, e não a transmissão do direito em si.</div>
+
+<h3><span class="n">9</span>Influência dos códigos estrangeiros</h3>
+<div class="vs">
+  <div class="side a"><h4>🇩🇪 Estrutura: BGB alemão (1896)</h4><ul><li>O CC brasileiro se inspira nele na estrutura</li></ul></div>
+  <div class="x">+</div>
+  <div class="side b"><h4>🇫🇷 Doutrina: francesa</h4><ul><li>Por causa do idioma e da formação dos juristas</li><li>Gera descompasso entre estrutura germânica e interpretação francesa</li></ul></div>
+</div>
+<div class="vs">
+  <div class="side a"><h4>📜 Civil law (romano-germânica)</h4><ul><li>Brasil, Europa continental, América Latina</li></ul></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>🇬🇧 Common law (anglo-saxão)</h4><ul><li>Fundado no costume e no precedente</li></ul></div>
+</div>
+
+<h3><span class="n">✅</span>Testar-se: Aula 01</h3>
+<div class="tools"><button type="button" data-open="a1">Abrir todas</button><button type="button" data-close="a1">Fechar todas</button></div>
+<details class="qa"><summary>1. Diferencie direito natural e direito da personalidade.</summary><div class="ans"><p>Direito natural é uma ordem de valores ligada à justiça, invocada como <b>fundamento</b> do direito positivo. Direito da personalidade é o conjunto de direitos que o <b>ordenamento reconhece</b> como inerentes à condição humana, e sua extensão varia por país. Nem tudo do direito natural é direito da personalidade positivado, e os direitos da personalidade não são sobrenaturais nem simplesmente "da natureza".</p><p class="pt">🎯 Fundamento filosófico × reconhecimento jurídico-positivo. Não trate como sinônimos.</p></div></details>
+<details class="qa"><summary>2. Enumere e explique as características.</summary><div class="ans"><p>Intransmissíveis (não cedem a terceiros), imprescritíveis (não se perdem pelo não uso), irrenunciáveis (titular não abre mão), absolutos (erga omnes) e indisponíveis (não se negociam nem alienam). Decorrem de serem inerentes à pessoa, e não bens patrimoniais de livre disposição. Complementos: personalíssimos e extrapatrimoniais.</p><p class="pt">🎯 Conheça todas e não confunda irrenunciabilidade com indisponibilidade.</p></div></details>
+<details class="qa"><summary>3. Compare De Cupis, Francisco Amaral e Pontes de Miranda.</summary><div class="ans"><p><b>De Cupis:</b> direitos subjetivos mínimos e essenciais ao reconhecimento da personalidade jurídica. <b>Amaral:</b> direitos subjetivos sobre bens e valores essenciais nos planos físico, moral e intelectual. <b>Pontes de Miranda:</b> todos os direitos necessários à realização da personalidade, com rol <b>dinâmico e aberto</b>.</p><p class="pt">🎯 Abertura conceitual de Pontes × formulações mais fechadas dos demais.</p></div></details>
+<details class="qa"><summary>4. Relação entre direitos fundamentais e da personalidade, com um exemplo de fundamental que não seja da personalidade.</summary><div class="ans"><p>Sobrepõem-se parcialmente: vida, privacidade e honra são ambos. Mas nem todo fundamental é da personalidade: <b>contraditório e ampla defesa</b> (art. 5º da CF) são direitos-garantia processuais, para assegurar o devido processo legal.</p><p class="pt">🎯 Erro comum: tratar todo fundamental como da personalidade.</p></div></details>
+<details class="qa"><summary>5. Proteção da imagem e dos direitos autorais após a morte.</summary><div class="ans"><p>Embora em regra intransmissíveis, imagem e direitos autorais do falecido ficam protegidos por <b>70 anos</b>, e a legitimidade para defendê-los passa aos <b>sucessores</b>. Isso preserva memória e obra, equilibrando a intransmissibilidade em vida com a proteção póstuma.</p><p class="pt">🎯 Relacione os 70 anos à legitimidade sucessória (veja o ⚠️ acima).</p></div></details>
+</div></section>
+
+<!-- ============================ AULA 2 ============================ -->
+<section class="aula" id="a2" style="--acc:#0f9d8a;--acc2:#d6336c">
+<header class="ah"><div class="num">02</div><div class="txt"><div class="date">11/08/2026</div><h2>Situações jurídicas, objetos das relações e classificação dos bens</h2>
+<div class="refs"><span>CC arts. 79 a 103 (Dos Bens)</span><span>CC arts. 11 a 21</span></div></div>
+<button class="done" data-a="a2" type="button">☐ Revisada</button></header>
+<div class="body">
+
+<h3><span class="n">1</span>Situação jurídica × relação jurídica</h3>
+<p><b>Situação jurídica:</b> todo acontecimento, fato ou relação de que decorrem consequências jurídicas. <b>Relação jurídica:</b> o vínculo entre dois sujeitos, marcado pela <b>intersubjetividade</b>.</p>
+<div class="vs">
+  <div class="side a"><h4>🤝 Relacional</h4><ul><li>Vínculo entre sujeitos determinados</li><li>Exige a <b>conduta</b> de outro sujeito</li><li>Ex.: compra e venda (entregar a coisa × pagar o preço)</li></ul></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>🧍 Não relacional</h4><ul><li>O titular exerce o direito sem depender de terceiro determinado</li><li>Basta o <b>dever geral de abstenção</b></li><li>Ex.: direito da personalidade</li></ul></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>Relacional</b> = tem dois lados (alguém <b>tem que fazer</b> algo). <b>Não relacional</b> = todo mundo <b>só tem que respeitar</b>.</div>
+
+<h3><span class="n">2</span>Sujeitos e personalidade jurídica</h3>
+<div class="flow"><div class="bx">🧑 Pessoa física (natural)</div><div class="ar">+</div><div class="bx">🏢 Pessoa jurídica</div><div class="ar">➜ são</div><div class="bx k">Sujeitos de direito</div><div class="ar">graças à</div><div class="bx k">Personalidade jurídica: atributo que permite titularizar direitos e obrigações</div></div>
+<p class="sm">Os direitos da personalidade (honra, nome, vida, integridade física e moral) são a ponte para a noção mais ampla de objeto das relações.</p>
+
+<h3><span class="n">3</span>Objeto das relações jurídicas</h3>
+<p>Objeto é tudo aquilo que está <b>fora do sujeito</b> e atende a um interesse juridicamente relevante.</p>
+<div class="flow">
+  <div class="bx k">Relação jurídica</div><div class="ar">➜</div>
+  <div class="bx">Objeto <b>imediato</b>: a <b>conduta humana</b><br><small>entregar um bem, prestar um serviço, abster-se</small></div><div class="ar">➜</div>
+  <div class="bx">Objeto <b>mediato</b>: o <b>bem</b><br><small>material ou imaterial</small></div>
+</div>
+<div class="vs">
+  <div class="side a"><h4>🖊️ Bem material (corpóreo)</h4><p class="sm">Caneta, relógio, casa. Pode ser tocado.</p></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>💡 Bem imaterial (incorpóreo)</h4><p class="sm">Direito de crédito, patente, obra intelectual protegida por direitos autorais.</p></div>
+</div>
+
+<h3><span class="n">4</span>Bem × coisa</h3>
+<p>O CC usa os termos, às vezes, como sinônimos, mas a doutrina distingue: <b>coisa</b> é mais restrita (materialidade, tangibilidade). <b>Bem</b> é mais amplo (coisas + direitos aptos a atender interesses jurídicos).</p>
+<div class="blocks3">
+  <div class="l"><h4>Coisa que não é bem</h4><ul><li>Areia do mar em estado natural</li><li>Ar atmosférico livre</li></ul></div>
+  <div class="m"><h4>Coisa e bem</h4><ul><li>Caneta, relógio, casa</li><li>Areia extraída para construção</li></ul></div>
+  <div class="r"><h4>Bem que não é coisa</h4><ul><li>Direito de crédito</li><li>Patente</li><li>Propriedade intelectual</li></ul></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>Coisa</b> = o que eu <b>toco</b>. <b>Bem</b> = o que <b>interessa ao Direito</b>. A areia da praia é coisa. Quando vira material de obra (finalidade econômica ou social), passa a ser <b>bem</b>.</div>
+
+<h3><span class="n">5</span>Patrimônio: três camadas e solvência</h3>
+<div class="nest"><b>🟣 Patrimônio jurídico</b> <small>o mais amplo: inclui bens sem valor econômico direto (ex.: direitos da personalidade)</small>
+  <div class="in"><b>🟢 Patrimônio econômico</b> <small>bens e direitos avaliáveis economicamente</small>
+    <div class="in"><b>🔵 Patrimônio contábil</b> <small>parte do econômico passível de registro contábil e tributação</small></div></div></div>
+<p class="sm">Relação de continência: jurídico ⊃ econômico ⊃ contábil.</p>
+<p>No patrimônio econômico distinguem-se <b>ativo</b> (bens e direitos que a pessoa possui) e <b>passivo</b> (deveres e obrigações a cumprir).</p>
+<div class="two">
+  <div class="card"><h4>✅ Solvente</h4><div class="scale"><div class="row">Ativo<div class="track"><div class="fill" style="width:85%"></div></div></div><div class="row">Passivo<div class="track"><div class="fill" style="width:45%;background:#c62f3b"></div></div></div></div><p>Ativo <b>maior</b> que passivo. Consegue honrar as obrigações.</p></div>
+  <div class="card c2"><h4>⚠️ Insolvente</h4><div class="scale"><div class="row">Ativo<div class="track"><div class="fill" style="width:40%"></div></div></div><div class="row">Passivo<div class="track"><div class="fill" style="width:88%;background:#c62f3b"></div></div></div></div><p>Passivo <b>maior</b> que ativo. Compromete a capacidade de pagar.</p></div>
+</div>
+
+<h3><span class="n">6</span>Critérios de classificação (visão da aula 2)</h3>
+<div class="tw"><table><tr><th>Critério</th><th>Categorias</th><th>Exemplos da aula</th></tr>
+<tr><td>Natureza</td><td>Corpóreos (tangíveis) × incorpóreos (intangíveis)</td><td>Caneta × direito autoral</td></tr>
+<tr><td>Mobilidade</td><td>Móveis (transportáveis sem alterar a essência) × imóveis (não transportáveis sem destruição ou alteração)</td><td>Terrenos e casas (imóveis por natureza); construções, árvores plantadas e muros (imóveis por acessão); carros e joias (móveis)</td></tr>
+<tr><td>Fungibilidade</td><td>Fungíveis (substituíveis por outros da mesma espécie, qualidade e quantidade) × infungíveis (únicos)</td><td>Dinheiro, arroz, feijão × obras de arte</td></tr>
+<tr><td>Consumibilidade</td><td>Consumíveis (destinados a consumo imediato) × inconsumíveis (não se exaurem com o uso)</td><td>Alimentos × casa, relógio</td></tr></table></div>
+<p>A classificação organiza os bens para aplicar a regra certa a cada categoria: forma de transmissão, registro e circulação.</p>
+<div class="call warn"><span class="lb">⚠️ Navios e aeronaves</span>A apostila os trata como <b>imóveis por ficção legal</b>: por causa do registro e da relevância econômica, recebem regime análogo ao dos imóveis. O Código Civil, porém, os classifica como bens <b>móveis</b> (sujeitos a registro e hipotecáveis). Leve à professora e responda como ela ensinou na prova.</div>
+<div class="call prof"><span class="lb">🗣️ Fala do professor</span>A moeda é o <b>elemento de valoração comum</b>. É ela que permite comparar economicamente bens de natureza totalmente distinta e viabiliza as trocas.</div>
+<p class="sm">Os detalhes de imóveis, fungíveis e consumíveis estão no mapa geral da seção <a href="#bens">🗺️ Bens</a>.</p>
+
+<h3><span class="n">✅</span>Testar-se: Aula 02</h3>
+<div class="tools"><button type="button" data-open="a2">Abrir todas</button><button type="button" data-close="a2">Fechar todas</button></div>
+<details class="qa"><summary>1. Situação jurídica relacional × não relacional, com exemplos.</summary><div class="ans"><p><b>Relacional:</b> vínculo intersubjetivo entre sujeitos determinados (compra e venda: comprador e vendedor com obrigações recíprocas). <b>Não relacional:</b> o titular exerce o direito sem depender de conduta de sujeito específico, bastando o dever geral de respeito (direito da personalidade).</p><p class="pt">🎯 Exigir conduta de sujeito determinado × exigir abstenção geral.</p></div></details>
+<details class="qa"><summary>2. Bem × coisa, com exemplo de cada não coincidência.</summary><div class="ans"><p>Coisa: mais restrita, ligada à materialidade. Bem: mais amplo, abrange coisas corpóreas e direitos incorpóreos. <b>Coisa que não é bem:</b> areia do mar em estado natural. <b>Bem que não é coisa:</b> direito de crédito ou patente.</p><p class="pt">🎯 Não trate como sinônimos.</p></div></details>
+<details class="qa"><summary>3. Patrimônio jurídico, econômico e contábil.</summary><div class="ans"><p>Jurídico: o mais amplo, com bens sem expressão econômica direta (direitos da personalidade). Econômico: bens e direitos avaliáveis em dinheiro. Contábil: parte do econômico passível de registro contábil e tributação, o mais restrito.</p><p class="pt">🎯 Relação de continência, da mais ampla à mais restrita.</p></div></details>
+<details class="qa"><summary>4. Pessoa solvente e insolvente.</summary><div class="ans"><p>Compara-se <b>ativo</b> (bens e direitos) com <b>passivo</b> (deveres e obrigações). Solvente: ativo supera o passivo. Insolvente: passivo supera o ativo, o que compromete a capacidade de honrar compromissos.</p><p class="pt">🎯 Não inverta ativo e passivo.</p></div></details>
+<details class="qa"><summary>5. Por que navios e aeronaves são tratados como imóveis apesar da mobilidade física?</summary><div class="ans"><p>Por <b>ficção legal</b>: a lei os submete a regime análogo ao dos imóveis pela exigência de registro específico e pela relevância econômica, que pede mais controle e segurança jurídica na circulação.</p><p class="pt">🎯 O critério aqui é a opção legislativa, e não a mobilidade física. (Veja o ⚠️.)</p></div></details>
+</div></section>
+
+<!-- ============================ AULA 3 ============================ -->
+<section class="aula" id="a3" style="--acc:#b45f06;--acc2:#1c7ed6">
+<header class="ah"><div class="num">03</div><div class="txt"><div class="date">18/08/2026</div><h2>Classificação e características dos bens</h2>
+<div class="refs"><span>CC arts. 79 a 91</span><span>CC arts. 92 a 97</span><span>arts. 833 e 1.711 a 1.722</span></div></div>
+<button class="done" data-a="a3" type="button">☐ Revisada</button></header>
+<div class="body">
+
+<h3><span class="n">1</span>Quatro eixos de classificação</h3>
+<p>A classificação determina os requisitos legais de cada tipo: registro, circulação, transmissão.</p>
+<div class="cards">
+  <div class="card"><div class="ic">🧱</div><h4>Natureza</h4><p>Corpóreos × incorpóreos; móveis × imóveis.</p></div>
+  <div class="card"><div class="ic">🔗</div><h4>Relação entre bens</h4><p>Principais × acessórios; singulares × coletivos.</p></div>
+  <div class="card"><div class="ic">🪪</div><h4>Titularidade</h4><p>Que direito a pessoa tem sobre o bem: reais × pessoais.</p></div>
+  <div class="card"><div class="ic">🚦</div><h4>Circulação</h4><p>Alienáveis × inalienáveis × fora do comércio; bem de família.</p></div>
+</div>
+<p class="sm">A apostila lista o eixo "titularidade" e desenvolve dentro dele, na prática, a distinção entre direitos reais e pessoais.</p>
+
+<h3><span class="n">2</span>Quanto à natureza</h3>
+<div class="vs">
+  <div class="side a"><h4>🥫 Corpóreos</h4><ul><li>Podem ser tocados (latas, celulares, pastas, cadeiras)</li><li>Transmissão por <b>tradição</b> (entrega física)</li></ul></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>📄 Incorpóreos</h4><ul><li>Sem existência física (direitos creditórios, direitos autorais)</li><li>Transferência por <b>documentos e contratos</b> específicos</li></ul></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>Corpóreo → entrega</b> (tradição). <b>Incorpóreo → papel</b> (contrato ou cessão).</div>
+
+<h3><span class="n">3</span>Bens móveis e imóveis</h3>
+<div class="vs">
+  <div class="side a"><h4>🏠 Imóveis</h4><ul><li>Não se movem sem alterar a <b>substância ou destinação</b></li><li>Venda acima do valor legal exige <b>escritura pública</b></li></ul></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>🚗 Móveis</h4><ul><li>Transportáveis sem alterar a substância (veículos, mobiliário)</li><li>Transferência por <b>contrato particular</b></li><li>Tratores e maquinário agrícola: em regra <b>móveis</b>, mesmo ligados a propriedade rural</li></ul></div>
+</div>
+<h4>Tipos de imóvel</h4>
+<ul class="tree">
+<li><span class="nd k">🏠 Imóveis</span>
+  <ul>
+    <li><span class="nd s">Por natureza</span> <span class="ex">terreno (o solo)</span></li>
+    <li><span class="nd s">Por acessão física</span> <span class="ex">móvel incorporado ao solo</span>
+      <ul><li><span class="nd">Natural</span> <span class="ex">➕ ex.: aluvião</span></li><li><span class="nd">Artificial ou industrial</span> <span class="ex">construções, plantações, muros, casa pré-moldada fixada ao terreno</span></li></ul></li>
+    <li><span class="nd s">Por acessão intelectual</span> <span class="ex">➕ conceito clássico</span>
+      <ul><li><span class="nd w">móvel que o dono põe a serviço do imóvel</span> <span class="ex">hoje, o CC trata como pertença, e a apostila trata tratores como móveis</span></li></ul></li>
+    <li><span class="nd s">Por determinação legal</span> <span class="ex">navios e aeronaves, segundo a apostila ⚠️</span></li>
+  </ul></li></ul>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span>Imóvel tem <b>NAIL</b> (prende): <b>N</b>atureza, <b>A</b>cessão física, <b>I</b>ntelectual (clássica) e <b>L</b>ei.</div>
+
+<h3><span class="n">4</span>Acessão × parte integrante × pertença</h3>
+<div class="tw"><table><tr><th>Instituto</th><th>Definição</th><th>Exemplo</th></tr>
+<tr><td>Acessão</td><td>Incorporação natural ou artificial de bem móvel ao imóvel, que passa a ser tratado como imóvel</td><td>Plantações; construções fixadas ao solo</td></tr>
+<tr><td>Parte integrante</td><td>Componente do principal que <b>não pode ser separado sem dano</b> ao conjunto</td><td>Rodas de um carro; benfeitorias essenciais</td></tr>
+<tr><td>Pertença</td><td>Vinculada funcionalmente ao principal, mas <b>destacável sem dano</b>. Não integra o negócio sobre o principal, salvo disposição em contrário</td><td>Ar-condicionado removível; ventiladores</td></tr></table></div>
+<div class="flow col"><div class="bx k">Posso retirar o bem sem causar dano ao principal?</div>
+  <div class="flow"><div class="bx">❌ NÃO ➜ <b>Parte integrante</b><br><small>segue o principal</small></div><div class="bx">✅ SIM ➜ <b>Pertença</b><br><small>só vai junto se combinado</small></div></div></div>
+<div class="comic">
+  <div class="panel"><div class="cap">A RODA</div><div class="scene">🚗🛞</div><div class="say"><div class="who">🛞</div><div class="bub">Sem mim, o carro não anda. Sou <b>parte integrante</b>.</div></div></div>
+  <div class="panel"><div class="cap">O AR-CONDICIONADO</div><div class="scene">🏠❄️</div><div class="say"><div class="who">❄️</div><div class="bub">Saio sem estragar nada. Sou <b>pertença</b>.</div></div></div>
+  <div class="panel"><div class="cap">A VENDA DA CASA</div><div class="scene">🤝🏠</div><div class="say"><div class="who">🧑‍💼</div><div class="bub">Comprei a casa. O ar-condicionado vem junto? Só se estiver no contrato.</div></div></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>P</b>ertença = <b>P</b>ode tirar. <b>I</b>ntegrante = <b>I</b>nseparável.</div>
+
+<h3><span class="n">5</span>Direitos reais × direitos pessoais</h3>
+<div class="two">
+  <div class="card"><svg class="fig" viewBox="0 0 220 160" role="img" aria-label="Direito real: oponível a todos"><use href="#omnes"/></svg><h4>Direitos reais</h4><p><b>Objeto:</b> coisas (propriedade, usufruto).</p><p><b>Oponibilidade:</b> <b>erga omnes</b>.</p><p><b>Sequela:</b> presente. O titular busca o bem onde estiver.</p></div>
+  <div class="card c2"><svg class="fig" viewBox="0 0 220 160" role="img" aria-label="Direito pessoal: só entre as partes"><use href="#partes"/></svg><h4>Direitos pessoais</h4><p><b>Objeto:</b> condutas entre pessoas (crédito).</p><p><b>Oponibilidade:</b> <b>inter partes</b>.</p><p><b>Sequela:</b> ausente.</p></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>Real</b> = segue a <b>coisa</b> (sequela) e vale contra <b>todos</b>. <b>Pessoal</b> = liga <b>pessoas</b> e vale <b>entre elas</b>.</div>
+
+<h3><span class="n">6</span>Relação entre bens: principal × acessório, singular × coletivo</h3>
+<div class="vs">
+  <div class="side a"><h4>👑 Principal</h4><p class="sm">Existe por si só.</p></div>
+  <div class="x">➜</div>
+  <div class="side b"><h4>🛒 Acessório</h4><p class="sm">Depende do principal. Ex.: <b>reboque</b> em relação ao veículo que o traciona. Regra: <b>o acessório segue o principal</b>.</p></div>
+</div>
+<ul class="tree"><li><span class="nd k">Bens acessórios (visão geral)</span><ul>
+<li><span class="nd s">Partes integrantes</span></li><li><span class="nd s">Pertenças</span></li><li><span class="nd s">Frutos</span></li><li><span class="nd s">Produtos</span></li><li><span class="nd s">Benfeitorias</span></li></ul></li></ul>
+<div class="vs">
+  <div class="side a"><h4>📘 Singulares</h4><p class="sm">Individualizados. Ex.: um livro específico.</p></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>📚 Coletivos</h4><p class="sm">Conjunto tratado como unidade. Ex.: biblioteca, herança.</p>
+  <ul><li><b>De fato:</b> bens singulares agrupados com finalidade comum (coleção de selos)</li><li><b>De direito:</b> o patrimônio (bens, direitos e obrigações)</li></ul></div>
+</div>
+
+<h3><span class="n">7</span>Quanto à circulação</h3>
+<div class="spec">
+  <div style="background:#b8f2c9;color:#14213d">🟢 Alienáveis<br><small style="color:#14213d">podem ser vendidos ou transferidos livremente</small></div>
+  <div style="background:#ffe8a3;color:#14213d">🟡 Inalienáveis<br><small style="color:#14213d">não se transacionam, por lei ou por convenção (cláusula restritiva)</small></div>
+  <div style="background:#ffc2c2;color:#14213d">🔴 Fora do comércio<br><small style="color:#14213d">nunca são objeto de transação. Ex.: órgãos humanos</small></div>
+</div>
+
+<h3><span class="n">8</span>Bem de família</h3>
+<div class="cards">
+  <div class="card"><div class="ic">🛡️</div><h4>O que é</h4><p>Parcela do patrimônio destinada à <b>moradia da família</b>, protegida contra a penhora por dívidas.</p></div>
+  <div class="card"><div class="ic">🖊️</div><h4>Como se constitui</h4><p>Voluntariamente pelos interessados, respeitados os limites legais.</p></div>
+  <div class="card"><div class="ic">🚧</div><h4>Efeito</h4><p>Credores não se apropriam do imóvel para quitar dívidas, <b>salvo as exceções legais</b>.</p></div>
+</div>
+<div class="call warn"><span class="lb">⚠️ Conferir</span>A apostila diz que hoje não há limite legal fixo de valor. O art. 1.711 do CC, para o bem de família voluntário, fala em limite de <b>um terço do patrimônio líquido</b> existente ao tempo da instituição. Há também o bem de família legal (Lei 8.009/90). Pergunte como a professora quer a resposta. O art. 833 citado na aula é do CPC (impenhorabilidade).</div>
+<div class="call prova"><span class="lb">🎯 Ponto de atenção</span>Relacione o instituto à <b>proteção da moradia familiar</b> (núcleo mínimo de dignidade), e não apenas à regra de impenhorabilidade.</div>
+
+<h3><span class="n">9</span>Benfeitorias</h3>
+<div class="cards">
+  <div class="card"><div class="ic">🧯</div><h4>Necessárias</h4><p><b>Conservam</b> o bem e evitam deterioração ou perecimento.</p><p class="ex">Conserto de vigas para evitar desabamento.</p></div>
+  <div class="card"><div class="ic">🧱</div><h4>Úteis</h4><p><b>Aumentam ou facilitam o uso</b> do bem.</p><p class="ex">Muro de segurança.</p></div>
+  <div class="card"><div class="ic">🐠</div><h4>Voluptuárias</h4><p><b>Embelezamento ou conforto</b>, sem aumentar a utilidade essencial.</p><p class="ex">Pintura decorativa, aquário.</p></div>
+</div>
+<div class="scale"><div class="row">Necessária<div class="track"><div class="fill" style="width:100%"></div></div></div><div class="row">Útil<div class="track"><div class="fill" style="width:62%"></div></div></div><div class="row">Voluptuária<div class="track"><div class="fill" style="width:22%"></div></div></div><small>Grau de indispensabilidade, do mais essencial ao mais dispensável.</small></div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>N-U-V</b>: <b>N</b>ão cai (conserva) → <b>U</b>sa melhor (utilidade) → <b>V</b>aidade (luxo).</div>
+<div class="call prova"><span class="lb">🎯 Como cai em prova</span>A classificação pode gerar controvérsia prática, especialmente quanto ao <b>direito de indenização e retenção do possuidor de boa-fé</b>.</div>
+
+<h3><span class="n">10</span>Frutos × produtos</h3>
+<div class="vs">
+  <div class="side a"><h4>🌳 Frutos</h4><ul><li>Rendimentos <b>periódicos</b></li><li><b>Não diminuem</b> a substância do principal</li><li><b>Renovam-se</b></li><li>Ex.: aluguel, colheita de café</li></ul></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>⛏️ Produtos</h4><ul><li>Resultam da exploração do principal</li><li><b>Consomem ou diminuem</b> a substância</li><li><b>Exaurem</b> gradualmente</li><li>Ex.: minério de jazida, petróleo de poço</li></ul></div>
+</div>
+<ul class="tree"><li><span class="nd k">🌳 Frutos</span><ul>
+<li><span class="nd s">Naturais</span> <span class="ex">produzidos espontaneamente pela natureza (frutos de árvore)</span></li>
+<li><span class="nd s">Civis</span> <span class="ex">rendimentos de natureza civil (aluguel)</span></li>
+<li><span class="nd s">Industriais</span> <span class="ex">resultam da atividade humana (produção de fábrica). Não confunda com "produtos"!</span></li></ul></li></ul>
+<div class="comic">
+  <div class="panel"><div class="cap">A ÁRVORE</div><div class="scene">🌳☕</div><div class="say"><div class="who">🌳</div><div class="bub">Todo ano dou café, e continuo aqui. Sou <b>fruto</b>.</div></div></div>
+  <div class="panel"><div class="cap">A JAZIDA</div><div class="scene">⛰️⛏️</div><div class="say"><div class="who">⛰️</div><div class="bub">Cada tonelada extraída me diminui. Isso é <b>produto</b>.</div></div></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>F</b>ruto <b>F</b>ica (renova). <b>P</b>roduto <b>P</b>erde (esgota). Tipos de fruto: <b>N-I-C</b> (Natural, Industrial, Civil). Critério-chave: <b>renovabilidade</b>.</div>
+
+<h3><span class="n">11</span>Acessão inversa</h3>
+<p>O proprietário de um terreno adquire parte do terreno vizinho por causa de construção ou ocupação, <b>mediante indenização</b> ao vizinho. A <b>construção</b>, e não a titularidade original do solo, define o destino do bem.</p>
+<svg class="fig" style="max-width:420px" viewBox="0 0 400 200" role="img" aria-label="Construção do terreno A invadindo parte do terreno do vizinho B">
+  <rect x="10" y="20" width="190" height="160" fill="#7c5cff" fill-opacity=".18" stroke="currentColor" stroke-width="3"/>
+  <rect x="200" y="20" width="190" height="160" fill="#e8590c" fill-opacity=".18" stroke="currentColor" stroke-width="3"/>
+  <rect x="110" y="70" width="140" height="70" fill="#ffe45e" stroke="currentColor" stroke-width="3"/>
+  <line x1="200" y1="20" x2="200" y2="180" stroke="currentColor" stroke-width="3" stroke-dasharray="7 5"/>
+  <text x="105" y="40" text-anchor="middle" font-size="14" fill="currentColor">Terreno A (constrói)</text>
+  <text x="295" y="40" text-anchor="middle" font-size="14" fill="currentColor">Terreno B (vizinho)</text>
+  <text x="180" y="110" text-anchor="middle" font-size="26">🏗️</text>
+  <text x="200" y="165" text-anchor="middle" font-size="13" fill="currentColor">A adquire a parte invadida e indeniza B</text>
+</svg>
+<p class="sm">⚠️ Para aprofundar, veja no CC os artigos sobre construção em solo alheio (arts. 1.258 e 1.259).</p>
+
+<h3><span class="n">✅</span>Testar-se: Aula 03</h3>
+<div class="tools"><button type="button" data-open="a3">Abrir todas</button><button type="button" data-close="a3">Fechar todas</button></div>
+<details class="qa"><summary>1. Parte integrante × pertença, com exemplos.</summary><div class="ans"><p><b>Parte integrante:</b> componente que não se separa sem dano ao conjunto (rodas de um veículo, benfeitorias essenciais). <b>Pertença:</b> vinculada funcionalmente, mas destacável sem prejuízo (ar-condicionado removível). A pertença <b>não segue automaticamente</b> o principal nos negócios, salvo disposição em contrário.</p><p class="pt">🎯 Núcleo: separabilidade sem dano.</p></div></details>
+<details class="qa"><summary>2. Direitos reais × pessoais quanto a oponibilidade e sequela.</summary><div class="ans"><p>Reais: incidem sobre coisas, <b>erga omnes</b>, com <b>sequela</b> (busca o bem onde estiver). Pessoais: vínculos entre pessoas determinadas, <b>inter partes</b>, sem sequela e sem efeitos automáticos perante terceiros.</p><p class="pt">🎯 Não inverta erga omnes e inter partes.</p></div></details>
+<details class="qa"><summary>3. Bem de família e sua função protetiva.</summary><div class="ans"><p>Parcela do patrimônio destinada à moradia da família, protegida contra a penhora. Pode ser constituída voluntariamente, respeitados os limites legais. Impede que credores tomem o imóvel residencial, preservando a moradia como núcleo mínimo de dignidade familiar, ressalvadas as exceções legais.</p><p class="pt">🎯 Ligue ao <b>direito de moradia</b>, e não só à impenhorabilidade.</p></div></details>
+<details class="qa"><summary>4. Benfeitorias necessárias, úteis e voluptuárias.</summary><div class="ans"><p><b>Necessárias:</b> indispensáveis à conservação (conserto de vigas). <b>Úteis:</b> aumentam ou facilitam o uso (muro de segurança). <b>Voluptuárias:</b> embelezamento ou conforto, sem aumentar a utilidade essencial (pintura decorativa, aquário).</p><p class="pt">🎯 Hierarquize pelo grau de indispensabilidade.</p></div></details>
+<details class="qa"><summary>5. Frutos × produtos e o critério de distinção.</summary><div class="ans"><p>Frutos: rendimentos periódicos que não diminuem a substância (naturais, civis ou industriais). Produtos: resultam da exploração e consomem a substância (minério). Critério: <b>renovabilidade</b>.</p><p class="pt">🎯 Cite o critério, e não apenas os exemplos.</p></div></details>
+</div></section>
+
+<!-- ============================ BENS: CENTRAL ============================ -->
+<section class="aula" id="bens" style="--acc:#0b7285;--acc2:#e8590c">
+<header class="ah"><div class="num">🗺️</div><div class="txt"><div class="date">Aulas 02 + 03 juntas, com os seus acréscimos</div><h2>Central de bens: mapa geral da classificação</h2>
+<div class="refs"><span>Corpóreos e incorpóreos</span><span>Móveis e imóveis</span><span>Acessão</span><span>Fungíveis</span><span>Genéricos</span><span>Singulares e coletivos</span><span>Principais e acessórios</span></div></div></header>
+<div class="body">
+
+<h3><span class="n">1</span>Mapa mental geral</h3>
+<div class="mm">
+  <div class="col l">
+    <div class="br"><b>🧱 Natureza</b>Corpóreos (tocáveis, tradição)<br>Incorpóreos (crédito, patente, autoral)</div>
+    <div class="br"><b>🔁 Fungibilidade e consumo</b>Fungíveis × infungíveis<br>Consumíveis × inconsumíveis<br>➕ Genéricos × individuais</div>
+    <div class="br"><b>📚 Singularidade</b>Singulares<br>Coletivos: de fato (selos), de direito (patrimônio, herança)</div>
+  </div>
+  <div class="core"><span>🏷️</span>Classificação dos bens</div>
+  <div class="col r">
+    <div class="br"><b>🏠 Mobilidade</b>Móveis<br>Imóveis: natureza, acessão física, acessão intelectual (clássica), lei</div>
+    <div class="br"><b>🔗 Relação entre bens</b>Principal × acessório<br>Partes integrantes, pertenças, benfeitorias, frutos, produtos</div>
+    <div class="br"><b>🚦 Circulação e titularidade</b>Alienáveis, inalienáveis, fora do comércio, bem de família<br>Direitos reais × pessoais</div>
+  </div>
+</div>
+
+<h3><span class="n">2</span>Tabela-mestra: nada fica de fora</h3>
+<div class="tw"><table><tr><th>Par</th><th>Lado 1</th><th>Lado 2</th><th>Pista para lembrar</th></tr>
+<tr><td>Corpóreo × incorpóreo</td><td>Tocável (caneta, casa). Transmite por <b>tradição</b>.</td><td>Intangível (crédito, patente, autoral). Transmite por <b>contrato ou documento</b>.</td><td>Corpo = entrega; sem corpo = papel</td></tr>
+<tr><td>Móvel × imóvel</td><td>Transportável sem alterar a substância. Contrato particular.</td><td>Solo e o que se incorpora a ele. Escritura pública acima do valor legal.</td><td>NAIL para imóveis</td></tr>
+<tr><td>Acessão</td><td colspan="2">Móvel incorporado ao imóvel passa a ser imóvel (plantação, construção, muro). Pode ser <b>física</b> (natural ou artificial) e, na doutrina clássica, <b>intelectual</b> (destinação dada pelo dono)</td><td>Incorporou, virou terra</td></tr>
+<tr><td>Parte integrante × pertença</td><td>Inseparável sem dano. Segue o principal.</td><td>Destacável sem dano. Só vai junto se combinado.</td><td>Pode tirar = Pertença</td></tr>
+<tr><td>Fungível × infungível</td><td>Substituível por outro igual (dinheiro, arroz, feijão)</td><td>Único, insubstituível (obra de arte)</td><td>Moeda comum × Monalisa</td></tr>
+<tr><td>Consumível × inconsumível</td><td>Uso destrói a substância (alimento)</td><td>Não se exaure com o uso (casa, relógio)</td><td>Comeu, acabou</td></tr>
+<tr><td>➕ Genérico × individual</td><td><b>Genérico:</b> definido só por gênero, qualidade e quantidade ("10 sacas de café tipo A")</td><td><b>Individual (específico):</b> identificado como único ("este cavalo", "esta casa")</td><td>Genérico = qualquer do lote; individual = este aqui</td></tr>
+<tr><td>Singular × coletivo</td><td>Individualizado (um livro)</td><td>Conjunto como unidade: <b>fato</b> (coleção de selos) ou <b>direito</b> (patrimônio, herança)</td><td>Fato = junta-se; direito = a lei junta</td></tr>
+<tr><td>Principal × acessório</td><td>Existe por si (veículo)</td><td>Depende do principal (reboque). O acessório segue o principal</td><td>Reboque não vive sem carro</td></tr>
+<tr><td>Fruto × produto</td><td>Renova, não diminui a substância (aluguel, café)</td><td>Exaure a substância (minério, petróleo)</td><td>Fruto Fica, Produto Perde</td></tr>
+<tr><td>Alienável × inalienável × fora do comércio</td><td>Circula livremente</td><td>Restrito por lei ou convenção; nunca negociável (órgãos)</td><td>Semáforo 🟢🟡🔴</td></tr>
+<tr><td>Real × pessoal</td><td>Sobre coisa, erga omnes, sequela</td><td>Entre pessoas, inter partes, sem sequela</td><td>Real segue a coisa</td></tr></table></div>
+<div class="call extra"><span class="lb">➕ Sobre "genéricos e individuais"</span>Não estão na apostila. Coloquei a pedido, com base em definições clássicas (matéria de Obrigações). Genérico e fungível <b>não são a mesma coisa</b>: fungibilidade é característica do bem, e a genericidade é o modo como o bem foi designado no negócio. Outros critérios do CC que não apareceram na apostila: divisíveis e indivisíveis, públicos e particulares.</div>
+
+<h3><span class="n">3</span>Roteiro de 9 perguntas para classificar qualquer bem</h3>
+<ol class="path">
+  <li><b>Dá para tocar?</b> Sim: corpóreo. Não: incorpóreo.</li>
+  <li><b>Move sem alterar a substância?</b> Sim: móvel. Não: imóvel (natureza, acessão ou lei).</li>
+  <li><b>Pode ser trocado por outro igual?</b> Sim: fungível. Não: infungível.</li>
+  <li><b>O uso acaba com ele?</b> Sim: consumível. Não: inconsumível.</li>
+  <li><b>É definido só por gênero e quantidade?</b> Genérico. Se é identificado como único: individual.</li>
+  <li><b>Existe sozinho?</b> Sim: principal. Não: acessório (parte integrante ou pertença? fruto ou produto? benfeitoria?).</li>
+  <li><b>É um só ou um conjunto?</b> Singular ou coletivo (de fato ou de direito).</li>
+  <li><b>Pode circular?</b> Alienável, inalienável ou fora do comércio.</li>
+  <li><b>Qual direito recai sobre ele?</b> Real (segue a coisa) ou pessoal (entre pessoas).</li>
+</ol>
+
+<h3><span class="n">4</span>Treino: classifique (clique no borrão para ver a resposta)</h3>
+<div class="tw"><table><tr><th>Bem</th><th>Classificação</th></tr>
+<tr><td>Casa</td><td><span class="rv">Corpóreo, imóvel (natureza/acessão), infungível, singular, principal</span></td></tr>
+<tr><td>Dinheiro</td><td><span class="rv">Corpóreo, móvel, fungível (moeda: valoração comum)</span></td></tr>
+<tr><td>Arroz e feijão</td><td><span class="rv">Corpóreos, móveis, fungíveis e consumíveis</span></td></tr>
+<tr><td>Patente</td><td><span class="rv">Incorpóreo (bem que não é coisa)</span></td></tr>
+<tr><td>Obra de arte</td><td><span class="rv">Corpórea, móvel, infungível</span></td></tr>
+<tr><td>Roda do carro</td><td><span class="rv">Parte integrante (inseparável sem dano)</span></td></tr>
+<tr><td>Ar-condicionado removível</td><td><span class="rv">Pertença (destacável, não segue o principal sem acordo)</span></td></tr>
+<tr><td>Trator na fazenda</td><td><span class="rv">Móvel, em regra, mesmo vinculado ao imóvel rural</span></td></tr>
+<tr><td>Muro construído</td><td><span class="rv">Imóvel por acessão (e benfeitoria útil)</span></td></tr>
+<tr><td>Reboque</td><td><span class="rv">Acessório em relação ao veículo</span></td></tr>
+<tr><td>Minério extraído</td><td><span class="rv">Produto (esgota a jazida)</span></td></tr>
+<tr><td>Aluguel</td><td><span class="rv">Fruto civil</span></td></tr>
+<tr><td>Colheita de café</td><td><span class="rv">Fruto natural</span></td></tr>
+<tr><td>Coleção de selos</td><td><span class="rv">Coletivo: universalidade de fato</span></td></tr>
+<tr><td>Herança ou patrimônio</td><td><span class="rv">Coletivo: universalidade de direito</span></td></tr>
+<tr><td>Órgãos humanos</td><td><span class="rv">Fora do comércio</span></td></tr>
+<tr><td>Navio</td><td><span class="rv">Apostila: imóvel por ficção legal ⚠️ (CC: móvel registrável)</span></td></tr></table></div>
+</div></section>
+
+<!-- ============================ AULA 4 ============================ -->
+<section class="aula" id="a4" style="--acc:#d64545;--acc2:#1c7ed6">
+<header class="ah"><div class="num">04</div><div class="txt"><div class="date">25/08/2026</div><h2>Fatos, atos e negócios jurídicos</h2>
+<div class="refs"><span>CC art. 104</span><span>CC art. 186 (ato ilícito)</span><span>CC arts. 185 e 232</span></div></div>
+<button class="done" data-a="a4" type="button">☐ Revisada</button></header>
+<div class="body">
+
+<h3><span class="n">1</span>A árvore dos fatos</h3>
+<p>O legislador <b>seleciona</b>, entre os inúmeros acontecimentos da vida, os que têm relevância jurídica e lhes atribui consequências. Essa seleção é o ponto de partida da teoria do fato jurídico.</p>
+<ul class="tree"><li><span class="nd k">Acontecimentos</span><ul>
+  <li><span class="nd s">🌧️ Fatos naturais</span> <span class="ex">chuva, terremoto, enchente, seca. Independem da vontade humana e, em regra, não geram efeitos diretos</span></li>
+  <li><span class="nd s">⚖️ Fatos jurídicos (sentido amplo)</span> <span class="ex">produzem efeitos previstos pelo ordenamento</span>
+    <ul>
+      <li><span class="nd">Fatos jurídicos em sentido estrito</span> <span class="ex">sem vontade humana: nascimento, morte, decurso do tempo</span></li>
+      <li><span class="nd">Atos jurídicos</span> <span class="ex">a vontade humana é essencial</span>
+        <ul>
+          <li><span class="nd w">Lícitos</span>
+            <ul><li><span class="nd">Ato jurídico em sentido estrito</span> <span class="ex">efeitos definidos pela <b>lei</b> (ex lege)</span></li><li><span class="nd">Negócio jurídico</span> <span class="ex">efeitos definidos pelas <b>partes</b> (autonomia privada)</span></li></ul></li>
+          <li><span class="nd w">Ilícitos</span> <span class="ex">violam normas, geram dano e responsabilidade civil (art. 186)</span></li>
+        </ul></li>
+    </ul></li>
+</ul></li></ul>
+<p>Um fato natural pode se tornar juridicamente relevante quando dele decorrem consequências previstas em lei. Exemplo: enchente causada por <b>omissão do poder público</b> na manutenção do sistema de drenagem gera responsabilidade civil.</p>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>Fato</b> acontece. <b>Ato</b> se <b>faz</b> (tem vontade). <b>Negócio</b> se <b>negocia</b> (as partes escrevem os efeitos).</div>
+
+<h3><span class="n">2</span>Atos jurídicos: lícitos × ilícitos</h3>
+<div class="tw"><table><tr><th>Espécie</th><th>Característica</th><th>Exemplos</th></tr>
+<tr><td>Lícitos</td><td>Praticados conforme a lei</td><td>Celebrar contrato, casar, alugar um bem, pagar uma conta, fazer testamento, comprar um celular</td></tr>
+<tr><td>Ilícitos</td><td>Violam normas e podem causar dano, gerando responsabilidade civil (art. 186 do CC)</td><td>Acidente de trânsito; dano por abuso em redes sociais</td></tr></table></div>
+
+<h3><span class="n">3</span>Ato jurídico em sentido estrito × negócio jurídico</h3>
+<div class="vs">
+  <div class="side a"><h4>📜 Ato jurídico em sentido estrito</h4><ul><li>Vontade de <b>praticar o ato</b></li><li>Efeitos <b>predeterminados pela lei</b> (ex lege)</li><li>Sem margem relevante para o agente moldar</li><li>Ex.: casamento (regime supletivo de bens, deveres conjugais)</li></ul></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>🤝 Negócio jurídico</h4><ul><li>Vontade de praticar <b>e de definir os efeitos</b></li><li>As partes escolhem objeto, preço, condições e garantias</li><li>Exercício da <b>autonomia privada</b></li><li>Ex.: compra e venda, locação, doação</li></ul></div>
+</div>
+<div class="comic">
+  <div class="panel"><div class="cap">CASAR</div><div class="scene">💍⚖️</div><div class="say"><div class="who">🤵</div><div class="bub">Eu quis casar. Mas o regime de bens supletivo e os deveres conjugais a <b>lei</b> já escreveu.</div></div></div>
+  <div class="panel"><div class="cap">COMPRAR</div><div class="scene">🏠🤝</div><div class="say"><div class="who">🧑‍💼</div><div class="bub">Eu defino o imóvel, o preço e a forma de pagamento. Quem escreve os efeitos somos <b>nós</b>.</div></div></div>
+</div>
+<div class="call prova"><span class="lb">🎯 Como cai em prova</span>Não confunda <b>vontade de praticar o ato</b> com <b>vontade de definir seus efeitos</b>. No ato em sentido estrito há vontade de praticar, mas os efeitos são legais. No negócio, as partes definem também o conteúdo dos efeitos.</div>
+<div class="call prof"><span class="lb">🗣️ Fala do professor</span>Os negócios jurídicos são o <b>revestimento jurídico das operações econômicas</b>. É por meio deles que a economia se movimenta juridicamente.</div>
+
+<h4>Autonomia privada: o poder de…</h4>
+<div class="cards">
+  <div class="card"><div class="ic">🚶</div><p>Agir ou <b>não agir</b></p></div>
+  <div class="card"><div class="ic">✍️</div><p><b>Obrigar-se</b></p></div>
+  <div class="card"><div class="ic">✂️</div><p><b>Extinguir</b> direitos</p></div>
+  <div class="card"><div class="ic">🔧</div><p><b>Modificar</b> relações jurídicas</p></div>
+</div>
+<div class="call"><span class="lb">Contrato de adesão</span>Planos de saúde, água, telefonia: as cláusulas são pré-estabelecidas por uma parte, mas <b>continuam sendo negócio jurídico</b>, porque o aderente exerce sua autonomia ao <b>decidir aderir</b>.</div>
+
+<h3><span class="n">4</span>Classificações dos atos e negócios</h3>
+<div class="tw"><table><tr><th>Critério</th><th>Categorias</th><th>Exemplos</th></tr>
+<tr><td>Conteúdo patrimonial</td><td>Patrimoniais × não patrimoniais</td><td>Compra e venda × deveres de fidelidade e apoio moral no casamento</td></tr>
+<tr><td>Forma de celebração</td><td>Onerosos (prestação e contraprestação) × gratuitos (prestação única)</td><td>Compra e venda × doação</td></tr>
+<tr><td>Momento dos efeitos</td><td>Inter vivos × mortis causa</td><td>Compra e venda × testamento</td></tr>
+<tr><td>Número de partes</td><td>Unilaterais, bilaterais, plurilaterais</td><td>Testamento; casamento; contrato social</td></tr>
+<tr><td>Duração dos efeitos</td><td>Imediatos, contínuos ou de longa duração</td><td>Locação (pagamento mensal); imóvel na planta (parcelado por anos)</td></tr></table></div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span>Os 5 critérios: <b>P-O-M-N-D</b> = "<b>P</b>edro <b>O</b>fereceu <b>M</b>uitos <b>N</b>úmeros <b>D</b>iferentes": <b>P</b>atrimonialidade, <b>O</b>nerosidade, <b>M</b>omento dos efeitos, <b>N</b>úmero de partes, <b>D</b>uração.</div>
+
+<h3><span class="n">5</span>Aplicações práticas</h3>
+<div class="cards">
+  <div class="card"><div class="ic">🌊</div><h4>Enchente</h4><p>Fato natural que vira jurídico pela omissão do poder público.</p></div>
+  <div class="card"><div class="ic">🚗</div><h4>Acidente de trânsito</h4><p>Ato ilícito com dano: responsabilidade civil.</p></div>
+  <div class="card"><div class="ic">📱</div><h4>Redes sociais</h4><p>Uso indevido que atinge honra ou imagem é ato ilícito.</p></div>
+  <div class="card"><div class="ic">🤲</div><h4>Gestão de negócios</h4><p>Age-se em benefício de outro sem consentimento e pode-se ser ressarcido pelas despesas de boa-fé.</p></div>
+  <div class="card"><div class="ic">🔑</div><h4>Posse</h4><p>Ato jurídico de conteúdo patrimonial: exercício fático dos poderes da propriedade.</p></div>
+  <div class="card"><div class="ic">⚰️</div><h4>Sucessão causa mortis</h4><p>Grande transferência patrimonial que movimenta volumes econômicos relevantes.</p></div>
+</div>
+
+<h3><span class="n">✅</span>Testar-se: Aula 04</h3>
+<div class="tools"><button type="button" data-open="a4">Abrir todas</button><button type="button" data-close="a4">Fechar todas</button></div>
+<details class="qa"><summary>1. Fato natural × fato jurídico. Quando o natural se torna relevante?</summary><div class="ans"><p>Fato natural é evento da natureza, independente da vontade humana (chuva, terremoto, seca) e, em regra, sem efeitos jurídicos diretos. Torna-se relevante quando dele decorrem consequências previstas em lei, como a responsabilidade civil por omissão do poder público diante de uma enchente previsível.</p><p class="pt">🎯 A relevância depende da consequência jurídica prevista, e não do evento em si.</p></div></details>
+<details class="qa"><summary>2. Ato jurídico em sentido estrito × negócio jurídico.</summary><div class="ans"><p>No ato em sentido estrito, os efeitos são definidos pela <b>lei</b> (ex lege), como o regime supletivo de bens no casamento. No negócio, as partes definem o conteúdo e os efeitos por sua <b>autonomia privada</b>, como objeto, preço e pagamento na compra e venda.</p><p class="pt">🎯 Vontade humana, por si só, não faz negócio: a vontade precisa modular os efeitos.</p></div></details>
+<details class="qa"><summary>3. Autonomia privada e negócio jurídico.</summary><div class="ans"><p>Poder conferido pelo ordenamento para criar, modificar ou extinguir direitos e obrigações por manifestação de vontade, inclusive agir ou não agir. É por ela que se celebram negócios, em que as partes escolhem, dentro dos limites legais, objeto, preço e condições.</p><p class="pt">🎯 Relacione à definição do <b>conteúdo</b>, e não só à liberdade de contratar.</p></div></details>
+<details class="qa"><summary>4. Contratos de adesão são negócios jurídicos?</summary><div class="ans"><p>Sim. Mesmo com cláusulas definidas por uma parte (planos de saúde, água, telefonia), o aderente exerce sua autonomia ao consentir com a vinculação, podendo optar por não contratar. A pré-elaboração só restringe, na prática, a margem de negociação.</p><p class="pt">🎯 A autonomia se manifesta em aderir ou não, e não em negociar cada cláusula.</p></div></details>
+<details class="qa"><summary>5. Classifique testamento e casamento (número de partes e momento dos efeitos).</summary><div class="ans"><p><b>Testamento:</b> unilateral (uma só vontade) e mortis causa (efeitos com a morte). <b>Casamento:</b> bilateral (vontade de ambos os cônjuges) e inter vivos (efeitos desde a celebração, entre vivos).</p><p class="pt">🎯 Aplique dois critérios ao mesmo instituto.</p></div></details>
+</div></section>
+
+<!-- ============================ AULA 5 ============================ -->
+<section class="aula" id="a5" style="--acc:#1c7ed6;--acc2:#e8590c">
+<header class="ah"><div class="num">05</div><div class="txt"><div class="date">01/09/2026</div><h2>Negócio jurídico: estrutura, elementos e manifestação da vontade</h2>
+<div class="refs"><span>CC art. 104</span><span>CC arts. 3º e 4º</span><span>CC arts. 1.801, 1.805 e 1.807</span></div></div>
+<button class="done" data-a="a5" type="button">☐ Revisada</button></header>
+<div class="body">
+
+<h3><span class="n">1</span>Fato jurídico × negócio: o caso do homicídio</h3>
+<p>Negócio jurídico é a manifestação de vontade que visa a produzir efeitos desejados pelas partes. Fatos jurídicos, como nascimento e morte, produzem efeitos sem depender da vontade.</p>
+<div class="two">
+  <div class="card"><div class="ic">⚰️</div><h4>A morte da vítima</h4><p><b>Fato jurídico.</b> Abre a sucessão, independentemente de ter sido causada por conduta voluntária de terceiro.</p></div>
+  <div class="card c2"><div class="ic">🔪</div><h4>O ato de matar</h4><p><b>Ato jurídico ilícito.</b> Viola um dever de abstenção e gera responsabilidade penal e civil do autor.</p></div>
+</div>
+<div class="call prova"><span class="lb">🎯 Como cai em prova</span>Separe o efeito <b>sucessório</b> (decorre do fato "morte") da <b>responsabilização</b> do autor (decorre do ato ilícito).</div>
+
+<h3><span class="n">2</span>Os três planos do negócio jurídico</h3>
+<div class="stairs">
+  <div class="st" style="--i:0"><b>1º Existência:</b> agente, objeto e forma<small>Se falta um: o negócio <b>não existe</b>.</small></div>
+  <div class="st" style="--i:1"><b>2º Validade:</b> agente capaz, objeto lícito, possível e determinável, forma prescrita ou não defesa em lei<small>Se falha: <b>invalidade</b> (nulidade ou anulabilidade).</small></div>
+  <div class="st" style="--i:2"><b>3º Eficácia:</b> condição, termo e encargo (elementos acidentais, aulas 6 e 7)<small>Alteram <b>quando e como</b> os efeitos se produzem, sem afetar existência nem validade.</small></div>
+</div>
+<div class="call prova"><span class="lb">🎯 Como cai em prova</span>Requisitos de <b>existência</b> (agente, objeto, forma) não se confundem com os de <b>validade</b> (agente capaz, objeto lícito/possível/determinado, forma prescrita ou não proibida). Ausência dos primeiros = <b>inexistência</b>. Falha nos segundos = <b>invalidade</b>.</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span>Art. 104 = <b>A-O-F</b> (<b>A</b>gente capaz, <b>O</b>bjeto lícito, <b>F</b>orma). Objeto = <b>L-P-D</b> (<b>L</b>ícito, <b>P</b>ossível, <b>D</b>eterminado ou determinável). Escada: <b>E-V-E</b> = <b>E</b>xistir, <b>V</b>aler, <b>E</b>ficaz.</div>
+
+<h3><span class="n">3</span>O agente: capacidade e legitimidade</h3>
+<div class="vs">
+  <div class="side a"><h4>🪪 Capacidade de direito</h4><p class="sm">Aptidão para <b>titularizar</b> direitos. Todo mundo tem, até o nascituro.</p></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>🖊️ Capacidade de exercício</h4><p class="sm">Aptidão para <b>exercer pessoalmente</b> os direitos e praticar atos válidos. Pode ser restringida. A incapacidade afeta o exercício, e não a titularidade.</p></div>
+</div>
+<div class="ruler"><div style="flex:16;background:#ffc2c2;color:#14213d">Até 16 anos: incapacidade absoluta<br><small style="color:#14213d">não pratica atos válidos por si só</small></div><div style="flex:8;background:#ffe8a3;color:#14213d">16 a 18: relativa<br><small style="color:#14213d">pode alguns atos: testar; comprar bem móvel de pequeno valor</small></div><div style="flex:6;background:#b8f2c9;color:#14213d">Capacidade plena</div></div>
+<p class="sm">Figura ilustrativa, fora de escala. Arts. 3º e 4º do CC.</p>
+<div class="call"><span class="lb">Legitimidade ≠ capacidade</span>Legitimidade é a <b>pertinência subjetiva</b> para agir numa situação concreta. Só o dono pode vender o bem. Um terceiro plenamente capaz não tem legitimidade para dispor de bem alheio sem autorização.</div>
+
+<h3><span class="n">4</span>O objeto: lícito, possível, determinado</h3>
+<div class="cards">
+  <div class="card"><div class="ic">🚫</div><h4>Lícito</h4><p>Não viola norma jurídica.</p><p class="ex">Comércio de substâncias ilícitas é vedado.</p></div>
+  <div class="card"><div class="ic">🌙</div><h4>Possível</h4><p>Pode ser realizado, de fato e de direito.</p></div>
+  <div class="card"><div class="ic">📐</div><h4>Determinado ou determinável</h4><p>Especificado na celebração ou passível de especificação futura.</p><p class="ex">Imóvel na planta.</p></div>
+</div>
+<div class="tw"><table><tr><th>Impossibilidade</th><th>Definição</th><th>Exemplo</th></tr>
+<tr><td>Fática absoluta</td><td>Impossível para todas as pessoas</td><td>Vender terreno na Lua</td></tr>
+<tr><td>Fática relativa</td><td>Impossível só para algumas pessoas</td><td>Pilotar avião sem habilitação</td></tr>
+<tr><td>Jurídica</td><td>Proibida por lei, embora fisicamente possível</td><td>Alienar herança de pessoa viva</td></tr></table></div>
+
+<h3><span class="n">5</span>A forma</h3>
+<div class="flow"><div class="bx k">Regra: liberdade de forma</div><div class="ar">verbal, escrita, gestos, tácita</div><div class="ar">➜ exceções:</div><div class="bx">Escritura pública para compra e venda de imóveis acima de certo valor</div><div class="bx">Testamento por escrito (nunca só oral)</div><div class="bx">Forma proibida em lei também invalida</div></div>
+
+<h3><span class="n">6</span>Manifestação da vontade</h3>
+<p>A vontade puramente <b>interna</b>, não exteriorizada, <b>não produz efeito</b> no direito. É indispensável, ainda, que a comunicação <b>alcance o destinatário</b>.</p>
+<div class="cards">
+  <div class="card"><div class="ic">🗣️</div><h4>Expressa</h4><p>Declarada verbalmente ou por escrito.</p><p class="ex">Assinatura de contrato; aceite verbal.</p></div>
+  <div class="card"><div class="ic">🚕</div><h4>Tácita</h4><p>Comportamento que o <b>próprio destinatário</b> interpreta como manifestação.</p><p class="ex">Taxista no ponto, oferecendo o serviço só por estar lá.</p></div>
+  <div class="card c2"><div class="ic">📜</div><h4>Presumida</h4><p>A <b>lei</b> atribui ao comportamento o valor de manifestação, mesmo sem interpretação do destinatário.</p><p class="ex">Presunção de culpa de quem colide na traseira.</p></div>
+</div>
+<div class="comic">
+  <div class="panel"><div class="cap">TÁCITA</div><div class="scene">🚕🧍</div><div class="say"><div class="who">🧍</div><div class="bub">Vi o taxista no ponto e entendi: ele está oferecendo o serviço. <b>Eu</b> interpretei.</div></div></div>
+  <div class="panel"><div class="cap">PRESUMIDA</div><div class="scene">🚗💥🚙</div><div class="say"><div class="who">📜</div><div class="bub">Bateu na traseira? A <b>lei</b> presume sua culpa. Ninguém precisou interpretar.</div></div></div>
+</div>
+<div class="call prof"><span class="lb">🗣️ Fala do professor</span>Na vontade <b>tácita</b>, quem interpreta o comportamento é o <b>destinatário</b>. Na vontade <b>presumida</b>, quem atribui é a <b>própria lei</b>.</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>T</b>ácita = <b>T</b>erceiro (destinatário) lê. <b>P</b>resumida = a Lei <b>P</b>resume.</div>
+<div class="call warn"><span class="lb">⚠️ Conferir</span>A apostila cita "presunção hominis" no exemplo da presumida, mas a presunção <i>hominis</i> costuma ser a do juiz, pela experiência comum, e não a estabelecida por lei. Confirme a terminologia. Na sucessão (arts. 1.801, 1.805, 1.807), veja como a aceitação da herança pode ser tácita ou presumida.</div>
+
+<h3><span class="n">7</span>Requisitos de validade (art. 104)</h3>
+<div class="flow"><div class="bx k">Agente capaz</div><div class="ar">+</div><div class="bx k">Objeto lícito, possível, determinado ou determinável</div><div class="ar">+</div><div class="bx k">Forma prescrita ou não defesa em lei</div></div>
+<div class="vs">
+  <div class="side a"><h4>🚫 Exame negativo</h4><p class="sm">O negócio <b>não pode contrariar</b> a lei, a ordem pública ou os bons costumes.</p></div>
+  <div class="x">+</div>
+  <div class="side b"><h4>✅ Exame positivo</h4><p class="sm">Deve <b>observar os requisitos legais específicos</b> do tipo de negócio, que podem ir além do art. 104.</p></div>
+</div>
+
+<h3><span class="n">✅</span>Testar-se: Aula 05</h3>
+<div class="tools"><button type="button" data-open="a5">Abrir todas</button><button type="button" data-close="a5">Fechar todas</button></div>
+<details class="qa"><summary>1. Por que a morte por homicídio continua sendo fato jurídico?</summary><div class="ans"><p>A morte, em si, é fato jurídico: é ela que abre a sucessão, e isso independe de quem a causou. O ato de matar é ato ilícito autônomo, que viola dever de abstenção e gera responsabilidade penal e civil.</p><p class="pt">🎯 Efeito sucessório (fato morte) × responsabilização (ato ilícito).</p></div></details>
+<details class="qa"><summary>2. Elementos essenciais do negócio e consequência da ausência.</summary><div class="ans"><p>Agente (capaz e legítimo), objeto (lícito, possível, determinado ou determinável) e forma (prescrita ou não proibida). Sua ausência compromete a <b>existência</b>, e não só a validade.</p><p class="pt">🎯 Diferencie plano de existência de plano de validade.</p></div></details>
+<details class="qa"><summary>3. Capacidade de direito × capacidade de exercício.</summary><div class="ans"><p>Direito: aptidão genérica para titularizar direitos, inclusive do nascituro. Exercício: aptidão para exercê-los pessoalmente e praticar atos válidos, restringível por incapacidade absoluta ou relativa. Menores têm capacidade de direito, mas não plena de exercício.</p><p class="pt">🎯 A incapacidade afeta o exercício, e não a titularidade.</p></div></details>
+<details class="qa"><summary>4. Vontade tácita × presumida e o critério distintivo.</summary><div class="ans"><p>Ambas decorrem do comportamento. Na <b>tácita</b>, o destinatário interpreta o comportamento como manifestação (taxista no ponto). Na <b>presumida</b>, a lei atribui esse significado, sem depender da interpretação do destinatário (culpa de quem bate na traseira).</p><p class="pt">🎯 Critério: quem interpreta, o destinatário ou a lei.</p></div></details>
+<details class="qa"><summary>5. Requisitos do art. 104 e exame negativo × positivo.</summary><div class="ans"><p>Agente capaz; objeto lícito, possível, determinado ou determinável; forma prescrita ou não proibida. O exame <b>negativo</b> verifica se o negócio contraria lei, ordem pública ou bons costumes. O <b>positivo</b> verifica se observa os requisitos legais específicos do tipo negocial.</p><p class="pt">🎯 A validade não se esgota na ausência de vícios.</p></div></details>
+</div></section>
+
+<!-- ============================ AULA 6 ============================ -->
+<section class="aula" id="a6" style="--acc:#2f9e44;--acc2:#c2255c">
+<header class="ah"><div class="num">06</div><div class="txt"><div class="date">08/09/2026</div><h2>Teorias da vontade, declaração e elementos acidentais</h2>
+<div class="refs"><span>CC art. 104, III</span><span>CC arts. 107 a 111</span><span>Lei de Registros Públicos</span></div></div>
+<button class="done" data-a="a6" type="button">☐ Revisada</button></header>
+<div class="body">
+
+<h3><span class="n">1</span>Teoria da vontade × teoria da declaração</h3>
+<p>Quando há divergência entre o que a pessoa realmente pensava e o que declarou, qual vontade prevalece?</p>
+<div class="vs">
+  <div class="side a"><h4>💭 Teoria da vontade <small>(Savigny, origem germânica)</small></h4><ul><li>Prevalece a vontade <b>interna ou real</b></li><li>Crítica: difícil identificar a intenção verdadeira, o que gera <b>insegurança</b> ao destinatário</li></ul></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>📣 Teoria da declaração <small>(Rudolf von Jhering)</small></h4><ul><li>Prevalece a vontade <b>declarada</b>, que chegou ao conhecimento da outra parte</li><li>Pode prevalecer sobre a real intenção, mas prestigia a <b>segurança jurídica</b> do destinatário</li></ul></div>
+</div>
+<p>A teoria da declaração prevaleceu por prestigiar a segurança de quem confia na manifestação. Outras teorias intermediárias (como a da <b>confiança</b>) foram mencionadas.</p>
+<div class="comic">
+  <div class="panel"><div class="cap">O ERRO</div><div class="scene">📝💸</div><div class="say"><div class="who">🧑</div><div class="bub">Eu <b>queria</b> vender por 100 mil, mas escrevi 10 mil.</div></div></div>
+  <div class="panel"><div class="cap">VONTADE</div><div class="scene">💭</div><div class="say"><div class="who">👨‍⚖️</div><div class="bub">Vale o que você <b>quis</b> de verdade. Mas como provo o que estava na sua cabeça?</div></div></div>
+  <div class="panel"><div class="cap">DECLARAÇÃO</div><div class="scene">📣🤝</div><div class="say"><div class="who">👩‍💼</div><div class="bub">Eu confiei no que <b>foi declarado</b>: 10 mil. Preciso de segurança.</div></div></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>Savigny sente</b> (vontade interna). <b>Jhering jura</b> (declaração). Vontade protege o <b>declarante</b>; declaração protege o <b>destinatário</b>.</div>
+<div class="call warn"><span class="lb">⚠️ Conferir</span>Alguns manuais associam a teoria da declaração a outros autores (Kohler, Saleilles). A apostila diz Jhering, então responda como a professora ensinou. No CC, o art. 112 manda atender mais à <b>intenção</b> do que ao sentido literal da linguagem.</div>
+
+<h3><span class="n">2</span>Receptícios × não receptícios</h3>
+<div class="vs">
+  <div class="side a"><h4>📬 Receptícios</h4><p class="sm">A vontade precisa <b>chegar ao conhecimento do destinatário</b> para produzir efeitos.</p><p class="sm">Ex.: compra e venda, doação.</p></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>📭 Não receptícios</h4><p class="sm">Produzem efeitos <b>independentemente</b> de chegar a um destinatário específico.</p><p class="sm">Ex.: <b>testamento</b>.</p></div>
+</div>
+
+<h3><span class="n">3</span>Manifestação direta × indireta</h3>
+<div class="tw"><table><tr><th></th><th>Como acontece</th><th>Exemplos</th></tr>
+<tr><td>Direta</td><td>O próprio agente declara pessoalmente ao destinatário</td><td>Conversa presencial</td></tr>
+<tr><td>Indireta</td><td>Por intermediários ou instrumentos de comunicação</td><td>Mensageiros, cartas, e-mails, aplicativos de mensagem</td></tr></table></div>
+<p class="sm">A diferença está no <b>meio</b> e no <b>momento</b> em que a vontade chega ao destinatário.</p>
+
+<h3><span class="n">4</span>Forma do negócio: regra, exceção e funções</h3>
+<div class="flow"><div class="bx k">Art. 104, III: liberdade de forma</div><div class="ar">salvo lei em contrário ➜</div><div class="bx">Veículo: verbal ou escrito</div><div class="bx">Imóvel acima do valor legal: escritura pública</div></div>
+<div class="cards">
+  <div class="card"><div class="ic">🔎</div><h4>Função 1: prova</h4><p>Meio de provar a existência e os termos do negócio.</p></div>
+  <div class="card c2"><div class="ic">🏛️</div><h4>Função 2: validade</h4><p>Em certos casos é requisito de validade (princípio do <b>formalismo</b>). Sem ela, o negócio pode ser inválido.</p></div>
+</div>
+<div class="vs">
+  <div class="side a"><h4>🖊️ Instrumento particular</h4><p class="sm">Elaborado pelas próprias partes.</p></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>🏛️ Instrumento público</h4><p class="sm">Elaborado por autoridade competente. Ex.: escritura pública lavrada em cartório.</p></div>
+</div>
+<h4>Cartórios e especialidades</h4>
+<div class="cards">
+  <div class="card"><div class="ic">👶</div><h4>Registro civil</h4><p>Nascimento, casamento, óbito.</p></div>
+  <div class="card"><div class="ic">🏠</div><h4>Registro de imóveis</h4><p>Matrícula, registro e averbação.</p></div>
+  <div class="card"><div class="ic">📑</div><h4>Títulos e documentos</h4><p>Registro de títulos negociais.</p></div>
+  <div class="card"><div class="ic">🏢</div><h4>Pessoas jurídicas</h4><p>Registro de entidades.</p></div>
+</div>
+<div class="call"><span class="lb">Prova do negócio</span>Pode ser documental, testemunhal e outras admitidas. A forma escrita nem sempre é requisito de validade, mas garante <b>autenticidade e segurança</b>. A aula alertou para golpes e fraudes por mensagens eletrônicas, que dificultam provar a autenticidade da vontade.</div>
+
+<h3><span class="n">5</span>Elementos acidentais: condição, termo e encargo</h3>
+<p>Atuam sobre a <b>eficácia</b>, podendo modificar o momento ou a forma de produção dos efeitos, sem afetar existência ou validade. São cláusulas <b>facultativas</b>, inseridas pela vontade das partes.</p>
+<div class="cards">
+  <div class="card"><div class="ic">🎲</div><h4>Condição</h4><p>Evento <b>futuro e incerto</b> ao qual se subordina a eficácia.</p><p class="ex">Se o time for rebaixado, usar a camisa do rival.</p></div>
+  <div class="card"><div class="ic">📅</div><h4>Termo</h4><p>Evento <b>futuro e certo</b> que marca início ou fim da eficácia.</p><p class="ex">Locação vigente até 31/12/2026.</p></div>
+  <div class="card"><div class="ic">🎒</div><h4>Encargo (modo)</h4><p><b>Ônus</b> imposto ao beneficiário de uma liberalidade.</p><p class="ex">Doação de fazenda com o encargo de manter reserva ambiental.</p></div>
+</div>
+<p>Podem ser combinados no mesmo negócio, cada um incidindo sobre um aspecto da eficácia.</p>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>C-T-E</b>: <b>C</b>ondição = <b>C</b>ara ou coroa (incerto). <b>T</b>ermo = <b>T</b>empo (certo). <b>E</b>ncargo = <b>E</b>u tenho que cumprir.</div>
+
+<h3><span class="n">✅</span>Testar-se: Aula 06</h3>
+<div class="tools"><button type="button" data-open="a6">Abrir todas</button><button type="button" data-close="a6">Fechar todas</button></div>
+<details class="qa"><summary>1. Teoria da vontade × declaração e seus autores.</summary><div class="ans"><p><b>Vontade (Savigny):</b> prevalece a vontade interna ou real, mesmo divergente do declarado. Problema: difícil aferir a intenção e proteger a segurança do destinatário. <b>Declaração (Jhering):</b> prevalece a vontade declarada e levada ao conhecimento da outra parte, protegendo a confiança do destinatário.</p><p class="pt">🎯 Associe autor, teoria e fundamento (declarante × destinatário).</p></div></details>
+<details class="qa"><summary>2. Negócio receptício × não receptício.</summary><div class="ans"><p>Receptício: eficácia depende de a vontade chegar ao destinatário (compra e venda, doação). Não receptício: eficácia independe de comunicação a destinatário determinado (testamento).</p><p class="pt">🎯 Necessidade de comunicação eficaz.</p></div></details>
+<details class="qa"><summary>3. Liberdade de forma e exceções (art. 104, III).</summary><div class="ans"><p>Em regra o negócio pode ter qualquer forma (verbal, escrita, gestos). Exceção: quando a lei prescreve forma específica como requisito de validade, como a escritura pública para imóveis acima do valor legal. Sem ela, a validade fica comprometida.</p><p class="pt">🎯 Liberdade é a regra, e forma específica é exceção legal.</p></div></details>
+<details class="qa"><summary>4. Duas funções da forma.</summary><div class="ans"><p>(1) Meio de <b>prova</b> da existência e do conteúdo do negócio. (2) Em certos casos, <b>requisito de validade</b> (formalismo). Se exigida e não observada, o negócio pode ser inválido, e não apenas difícil de provar.</p><p class="pt">🎯 Função probatória e requisito de validade têm consequências diferentes.</p></div></details>
+<details class="qa"><summary>5. Condição, termo e encargo, com exemplos.</summary><div class="ans"><p><b>Condição:</b> evento futuro e incerto (desconto se o clube for rebaixado). <b>Termo:</b> evento futuro e certo (data final da locação). <b>Encargo:</b> ônus ao beneficiário de liberalidade (doação com manutenção de reserva ambiental).</p><p class="pt">🎯 Certeza (termo) × incerteza (condição), e natureza onerosa do encargo em negócios gratuitos.</p></div></details>
+</div></section>
+
+<!-- ============================ AULA 7 ============================ -->
+<section class="aula" id="a7" style="--acc:#c2255c;--acc2:#0b7285">
+<header class="ah"><div class="num">07</div><div class="txt"><div class="date">15/09/2026</div><h2>Elementos acidentais: condição, termo e encargo</h2>
+<div class="refs"><span>CC arts. 121 a 130</span><span>art. 122 (potestativa)</span><span>arts. 126 a 128</span></div></div>
+<button class="done" data-a="a7" type="button">☐ Revisada</button></header>
+<div class="body">
+
+<h3><span class="n">1</span>Natureza jurídica</h3>
+<div class="vs">
+  <div class="side a"><h4>🧱 Essenciais</h4><ul><li>Requisitos de existência e validade</li><li>Vêm da estrutura legal do negócio</li><li>Sem eles: inexistência ou invalidade</li></ul></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>🎛️ Acidentais</h4><ul><li>Vêm <b>exclusivamente da autonomia privada</b></li><li>Sua ausência não compromete existência nem validade</li><li>Alteram a <b>eficácia</b> (quando e como os efeitos ocorrem)</li></ul></div>
+</div>
+
+<h3><span class="n">2</span>Condição: as 3 características</h3>
+<div class="cards">
+  <div class="card"><div class="ic">⏭️</div><h4>Futuridade</h4><p>O evento ocorre depois da celebração.</p></div>
+  <div class="card"><div class="ic">❓</div><h4>Incerteza</h4><p>Pode ou não acontecer.</p></div>
+  <div class="card"><div class="ic">🙋</div><h4>Voluntariedade</h4><p>Estipulada pelas próprias partes.</p></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>F-I-V</b>: <b>F</b>uturo, <b>I</b>ncerto, <b>V</b>oluntário.</div>
+
+<h3><span class="n">3</span>Suspensiva × resolutiva</h3>
+<div class="vs">
+  <div class="side a"><h4>⏸️ Suspensiva</h4><p class="sm">Suspende os efeitos até o evento. <b>Só depois</b> do implemento eles começam (ex nunc).</p><p class="sm"><b>Ex.:</b> desconto na casa <i>se</i> o comprador se casar até o fim do ano. O desconto só é exigível se o casamento ocorrer.</p></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>🔚 Resolutiva</h4><p class="sm">Produz efeitos <b>desde a celebração</b>, e eles <b>cessam</b> quando a condição se implementa (ex nunc).</p><p class="sm"><b>Ex.:</b> venda da casa com cláusula que permite ao vendedor recomprá-la se não achar outro imóvel em 6 meses.</p></div>
+</div>
+<div class="lane"><div class="off" style="flex:3">Suspensiva: sem efeitos</div><div class="ev">⚡ condição implementada</div><div class="on" style="flex:3">efeitos começam</div></div>
+<div class="lane"><div class="on" style="flex:3">Resolutiva: efeitos produzidos</div><div class="ev">⚡ condição implementada</div><div class="off" style="flex:3">efeitos cessam</div></div>
+<div class="call prova"><span class="lb">🎯 Como cai em prova</span>Regra geral: os efeitos operam <b>ex nunc</b> (a partir do implemento), e não ex tunc. Atenção a disposições específicas em contrário.</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>Suspensiva = Semáforo vermelho</b>: só anda depois. <b>Resolutiva = Rompe depois</b>: anda agora e para quando a condição chega.</div>
+
+<h3><span class="n">4</span>Condições quanto à origem do evento</h3>
+<div class="cards">
+  <div class="card"><div class="ic">🎰</div><h4>Casual</h4><p>Depende de evento externo, alheio à vontade das partes.</p><p class="ex">Ganhar na loteria.</p></div>
+  <div class="card"><div class="ic">🙋</div><h4>Potestativa</h4><p>Depende <b>exclusivamente da vontade de uma parte</b>.</p><p class="ex">Comprar o livro se gostar dele, depois de lê-lo.</p></div>
+  <div class="card"><div class="ic">🔀</div><h4>Mista</h4><p>Depende da vontade das partes <b>e</b> de evento externo.</p><p class="ex">Vontade combinada com circunstância de mercado.</p></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>Casual</b> = acaso. <b>Potestativa</b> = <b>pode</b> a parte (potestade). <b>Mista</b> = <b>mix</b> dos dois.</div>
+
+<h3><span class="n">5</span>Licitude das condições</h3>
+<div class="spec">
+  <div style="background:#b8f2c9;color:#14213d">🟢 Lícitas<br><small style="color:#14213d">não contrariam lei, ordem pública ou bons costumes</small></div>
+  <div style="background:#ffe8a3;color:#14213d">🟡 Potestativa lícita<br><small style="color:#14213d">depende da vontade de uma parte, mas com parâmetros objetivos</small></div>
+  <div style="background:#ffc2c2;color:#14213d">🔴 Ilícitas<br><small style="color:#14213d">privam o negócio de todo efeito, ou o sujeitam ao <b>puro arbítrio</b> de uma parte (art. 122)</small></div>
+</div>
+<div class="comic">
+  <div class="panel"><div class="cap">PURAMENTE POTESTATIVA</div><div class="scene">🤝📝</div><div class="say"><div class="who">🧑‍💼</div><div class="bub">Pago o preço <b>se eu quiser</b>.</div></div><div class="end">Ilícita: vira refém do capricho</div></div>
+  <div class="panel"><div class="cap">POTESTATIVA LÍCITA</div><div class="scene">📖🙂</div><div class="say"><div class="who">🙂</div><div class="bub">Compro o livro <b>se gostar</b>, depois de lê-lo.</div></div><div class="end">Lícita: há parâmetro objetivo</div></div>
+</div>
+
+<h3><span class="n">6</span>Condições impossíveis</h3>
+<div class="vs">
+  <div class="side a"><h4>⏸️ Suspensiva impossível</h4><p class="sm"><b>Invalida o próprio negócio.</b> Ficaria eternamente pendente de um evento que nunca ocorrerá.</p></div>
+  <div class="x">≠</div>
+  <div class="side b"><h4>🔚 Resolutiva impossível</h4><p class="sm">O negócio <b>permanece válido</b>. A condição é tida como <b>não escrita</b> (inexistente).</p></div>
+</div>
+<div class="comic">
+  <div class="panel"><div class="cap">SUSPENSIVA IMPOSSÍVEL</div><div class="scene">🏠🌙</div><div class="say"><div class="who">🧑</div><div class="bub">Te vendo a casa <b>se você tocar a Lua</b>.</div></div><div class="end">Negócio nulo. Nunca começa.</div></div>
+  <div class="panel"><div class="cap">RESOLUTIVA IMPOSSÍVEL</div><div class="scene">🏠🌙</div><div class="say"><div class="who">🧑</div><div class="bub">A venda termina <b>se você tocar a Lua</b>.</div></div><div class="end">Condição riscada. Negócio valendo.</div></div>
+</div>
+<div class="call prof"><span class="lb">🗣️ Fala do professor</span>A diferença entre suspensiva impossível (invalida o negócio) e resolutiva impossível (é tida por inexistente, mas o negócio permanece válido) é <b>ponto clássico de prova. Não decore ao contrário.</b></div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span>Suspensiva impossível: <b>nunca começa</b> → cai o negócio. Resolutiva impossível: <b>nunca termina</b> → cai só a cláusula.</div>
+
+<h3><span class="n">7</span>Termo e prazo</h3>
+<div class="vs">
+  <div class="side a"><h4>🎲 Condição</h4><p class="sm">Evento futuro e <b>incerto</b> quanto à própria ocorrência. Ex.: o time ser rebaixado ou não.</p></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>📅 Termo</h4><p class="sm">Evento futuro e <b>certo</b> quanto à ocorrência (a data exata pode até ser incerta: <i>termo incerto</i>). Pode ser <b>inicial</b> ou <b>final</b>.</p></div>
+</div>
+<div class="call"><span class="lb">Prazo</span>É o intervalo entre um termo inicial e um termo final. Conta-se em dias corridos, dias úteis, meses ou anos, com regras sobre incluir ou excluir o dia do início e do vencimento. Tem relevância prática em matéria processual, contratual e administrativa.</div>
+<div class="call extra"><span class="lb">➕ Extra</span>Regra clássica de contagem no CC (art. 132): <b>exclui-se o dia do começo e inclui-se o do vencimento</b>.</div>
+
+<h3><span class="n">8</span>Modo ou encargo</h3>
+<div class="cards">
+  <div class="card"><div class="ic">🎁</div><h4>Onde aparece</h4><p>Tipicamente em negócios <b>gratuitos</b>: doações e testamentos.</p></div>
+  <div class="card"><div class="ic">🌱🎓</div><h4>Exemplos</h4><p>Doação com manutenção de reserva ambiental. Bolsa de estudos com média mínima.</p></div>
+  <div class="card c2"><div class="ic">↩️</div><h4>Descumprimento</h4><p>Pode ensejar <b>revogação da liberalidade</b>, observados os limites: o encargo respeita a dignidade do beneficiado e <b>não pode ser abusivo</b>.</p></div>
+</div>
+<div class="call extra"><span class="lb">➕ Extra</span>Encargo <b>não é condição</b>: em regra, não suspende a aquisição do direito. O beneficiário já o adquire, mas tem o ônus de cumprir o encargo.</div>
+
+<h3><span class="n">9</span>Aplicações práticas</h3>
+<ul class="tight"><li><b>Compra e venda:</b> descontos condicionados a eventos futuros.</li><li><b>Testamentos:</b> heranças subordinadas a eventos futuros incertos.</li><li><b>Pacto antenupcial:</b> exemplo de condição prevista em lei, com efeitos só após o casamento.</li><li><b>Condições ilícitas:</b> sempre reconduzidas aos limites de lei, ordem pública e bons costumes.</li></ul>
+
+<h3><span class="n">✅</span>Testar-se: Aula 07</h3>
+<div class="tools"><button type="button" data-open="a7">Abrir todas</button><button type="button" data-close="a7">Fechar todas</button></div>
+<details class="qa"><summary>1. Condição suspensiva × resolutiva e momento dos efeitos.</summary><div class="ans"><p><b>Suspensiva:</b> efeitos suspensos até o evento futuro e incerto e só começam com o implemento. <b>Resolutiva:</b> efeitos desde a celebração, cessando quando a condição se implementa. Em ambas, a regra é a atuação <b>ex nunc</b>.</p><p class="pt">🎯 Suspensiva: quando começam. Resolutiva: quando cessam.</p></div></details>
+<details class="qa"><summary>2. Condição puramente potestativa e por que é ilícita.</summary><div class="ans"><p>Sujeita o negócio ao <b>mero arbítrio de uma parte</b>, sem parâmetro objetivo. É ilícita porque priva o negócio de efeito vinculante real, e o art. 122 a veda.</p><p class="pt">🎯 Diferencie da potestativa lícita, admissível.</p></div></details>
+<details class="qa"><summary>3. Suspensiva impossível × resolutiva impossível.</summary><div class="ans"><p><b>Suspensiva impossível:</b> invalida o negócio, que ficaria eternamente pendente. <b>Resolutiva impossível:</b> o negócio segue válido, e a condição é tida como não escrita, sem a limitação pretendida.</p><p class="pt">🎯 Ponto clássico e muito invertido.</p></div></details>
+<details class="qa"><summary>4. Termo × condição: critério central.</summary><div class="ans"><p>Ambos são eventos futuros que influenciam a eficácia. O critério é a <b>certeza da ocorrência</b>: termo é futuro e certo (ainda que a data possa ser incerta), e condição é futuro e incerto (pode nem ocorrer).</p><p class="pt">🎯 Cite a certeza da ocorrência, e não só exemplos.</p></div></details>
+<details class="qa"><summary>5. O que é modo (encargo) e consequência do descumprimento?</summary><div class="ans"><p>Ônus imposto ao beneficiário de uma liberalidade, típico de doações e testamentos (ex.: manter área de reserva ambiental). O descumprimento pode ensejar <b>revogação</b> da liberalidade, respeitados os limites legais. O encargo deve respeitar a dignidade do beneficiado e não pode ser abusivo.</p><p class="pt">🎯 Ligue ao negócio gratuito e à revogação, sem confundir com condição.</p></div></details>
+</div></section>
+
+<!-- ============================ AULA 8 ============================ -->
+<section class="aula" id="a8" style="--acc:#5f3dc4;--acc2:#e8590c">
+<header class="ah"><div class="num">08</div><div class="txt"><div class="date">22/09/2026</div><h2>Negócio jurídico e representação</h2>
+<div class="refs"><span>CC arts. 115 a 120</span><span>art. 118 (contemplatio domini)</span><span>art. 666</span><span>arts. 653 a 692 (Mandato)</span></div></div>
+<button class="done" data-a="a8" type="button">☐ Revisada</button></header>
+<div class="body">
+
+<h3><span class="n">1</span>Legitimação e a regra geral</h3>
+<p>O negócio deve ser celebrado pelos <b>legitimados</b>, isto é, os que detêm titularidade sobre o bem. Legitimação é a pertinência subjetiva das partes em relação à situação concreta.</p>
+<div class="comic">
+  <div class="panel"><div class="cap">O DONO</div><div class="scene">🏠🧑</div><div class="say"><div class="who">🧑</div><div class="bub">Sou o Rodrigo, único titular da casa. Só eu posso vendê-la ao Pedro.</div></div></div>
+  <div class="panel"><div class="cap">O AMIGO</div><div class="scene">🏠🧑‍🤝‍🧑</div><div class="say"><div class="who">🧑‍🤝‍🧑</div><div class="bub">Posso vender a casa do Rodrigo em nome próprio? <b>Não!</b> Falta legitimidade.</div></div></div>
+  <div class="panel"><div class="cap">A EXCEÇÃO</div><div class="scene">📜🤝</div><div class="say"><div class="who">📜</div><div class="bub">Com <b>representação</b>, o amigo pode agir, porque o Rodrigo o legitimou.</div></div></div>
+</div>
+<div class="call prof"><span class="lb">🗣️ Fala do professor</span>Ninguém pode agir influindo na <b>esfera jurídica alheia</b>: essa é a regra base. A representação é a <b>principal exceção</b> para permitir, licitamente, essa interferência.</div>
+
+<h3><span class="n">2</span>Representação: conceito e função</h3>
+<p>Permite a intervenção de quem <b>não é parte originária</b> do negócio, e os efeitos recaem <b>diretamente sobre o representado</b>. Exemplo: quem quer comprar imóvel, mas está em outro país, contrata um terceiro para agir em seu nome.</p>
+<div class="flow">
+  <div class="bx k">🧑 Representado</div><div class="ar">outorga poderes (procuração) ➜</div>
+  <div class="bx">🧑‍💼 Representante</div><div class="ar">age em nome do representado ➜</div>
+  <div class="bx">🏢 Terceiro</div>
+</div>
+<p class="sm" style="text-align:center">↩️ Os efeitos do negócio voltam para o <b>representado</b>, e não para quem praticou o ato.</p>
+
+<h3><span class="n">3</span>Origem histórica</h3>
+<ol class="tl">
+  <li><b>Direito romano clássico:</b> não admitia representação. Valorizava a pessoalidade, e a própria pessoa manifestava a vontade.</li>
+  <li><b>Queda do Império Romano.</b></li>
+  <li><b>Direito canônico:</b> introduziu os elementos básicos da representação como conhecemos.</li>
+  <li><b>Hoje:</b> instituto muito usado no ambiente negocial contemporâneo.</li>
+</ol>
+
+<h3><span class="n">4</span>Poder de representação</h3>
+<p>É o <b>elemento essencial</b>: o poder outorgado (concedido, delegado) pelo representado ao representante. Sem ele, não há representação. Não é presumido.</p>
+<div class="cards">
+  <div class="card"><div class="ic">🎯</div><h4>Específico</h4><p>Voltado a um negócio determinado.</p></div>
+  <div class="card"><div class="ic">🗂️</div><h4>Genérico</h4><p>Administração do patrimônio do representado.</p></div>
+  <div class="card"><div class="ic">📋</div><h4>O conteúdo define</h4><p>Quem é o representado e o representante, o âmbito, os atos possíveis e o tempo de validade.</p></div>
+</div>
+<div class="call prova"><span class="lb">🎯 Como cai em prova</span>Poderes de <b>administração geral não incluem</b>, por si sós, poderes para <b>alienar ou onerar</b> bens (venda, hipoteca). Estes exigem outorga <b>expressa e específica</b>.</div>
+
+<h3><span class="n">5</span>Outorga e procuração</h3>
+<div class="flow"><div class="bx k">Outorga de poderes: negócio <b>unilateral</b></div><div class="ar">formalizada em ➜</div><div class="bx k">Procuração</div></div>
+<ul class="tight"><li>Registra qualificação das partes, poderes, âmbito e prazo.</li><li>Pode ser <b>particular ou pública</b>, conforme o negócio. Pública para compra e venda de imóveis e hipoteca.</li><li>É unilateral e <b>não receptícia</b>: produz efeitos independentemente do conhecimento do terceiro, embora seja apresentada a ele na prática.</li><li>Pode ser <b>verbal, escrita, tácita ou expressa</b>. A escrita é a mais segura. A tácita gera insegurança por não delimitar o âmbito.</li></ul>
+
+<h3><span class="n">6</span>Representação legal × voluntária</h3>
+<div class="vs">
+  <div class="side a"><h4>📜 Legal</h4><p class="sm">Decorre <b>da lei</b>. Ex.: pais representando filhos menores.</p></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>🖊️ Voluntária (convencional)</h4><p class="sm">Decorre <b>da vontade do interessado</b>. Ex.: procuração a advogado ou pessoa de confiança. Disciplinada principalmente pelas regras do <b>mandato</b>.</p></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>M-P-O</b>: <b>M</b>andato = o <b>contrato</b> por trás. <b>P</b>rocuração = o <b>papel</b>. <b>O</b>utorga = o <b>poder</b> dado.</div>
+
+<h3><span class="n">7</span>Substabelecimento</h3>
+<div class="flow"><div class="bx k">Representado</div><div class="ar">➜ poderes</div><div class="bx">Representante (substabelecente)</div><div class="ar">➜ transfere</div><div class="bx">Substabelecido</div></div>
+<div class="cards">
+  <div class="card"><div class="ic">📏</div><h4>Limitado</h4><p>Só os poderes originalmente recebidos. <b>Nunca amplia</b>.</p></div>
+  <div class="card"><div class="ic">🤫</div><h4>Sem conhecimento</h4><p>Pode ocorrer sem o conhecimento do representado, mas o <b>substabelecente responde</b> pelos atos do substabelecido.</p></div>
+  <div class="card"><div class="ic">⛔</div><h4>Vedação</h4><p>O representado pode <b>vedar expressamente</b> na procuração.</p></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span><b>Sub</b> = abaixo: nunca pode ter <b>mais</b> poder que quem está acima.</div>
+
+<h3><span class="n">8</span>Contemplatio domini</h3>
+<p>Ato em que o representante <b>revela ao terceiro</b> que age em nome do representado (art. 118). É essencial à boa-fé: o contratante tem direito de saber com quem contrata.</p>
+<div class="vs">
+  <div class="side a"><h4>🔦 Representação direta</h4><ul><li>Há revelação</li><li>Efeitos do negócio recaem <b>diretamente</b> sobre o representado</li></ul></div>
+  <div class="x">VS</div>
+  <div class="side b"><h4>🕶️ Representação indireta</h4><ul><li>Sem revelação: age como se fosse parte própria (o "laranja", o "testa de ferro")</li><li>Não gera de imediato efeitos diretos ao representado</li><li>Não é, por si só, necessariamente ilícita</li></ul></div>
+</div>
+
+<h3><span class="n">9</span>Vontade e capacidade na representação</h3>
+<ul class="tight"><li>Quem manifesta a vontade é o <b>representante</b>, seguindo as instruções do representado (ex.: modelo do veículo, faixa de preço).</li><li>Vícios da vontade (erro, dolo, coação) são, em regra, aferidos <b>no representante</b>, e não no representado.</li><li><b>Art. 666:</b> maiores de 16 e menores de 18 (relativamente incapazes) podem ser <b>mandatários</b> em certas condições, mesmo com capacidade de exercício limitada para outros atos.</li></ul>
+
+<h3><span class="n">10</span>Extinção e ratificação</h3>
+<div class="cards">
+  <div class="card"><div class="ic">❌</div><h4>Revogação</h4><p>Dos poderes pelo representado.</p></div>
+  <div class="card"><div class="ic">⚰️</div><h4>Morte</h4><p>Do representante ou do representado.</p></div>
+  <div class="card"><div class="ic">✅</div><h4>Conclusão</h4><p>Realização do negócio para o qual foi outorgada.</p></div>
+  <div class="card"><div class="ic">🪪</div><h4>Perda de capacidade</h4><p>Do representante.</p></div>
+</div>
+<div class="call mnem"><span class="lb">🧠 Mnemônico</span>A representação acaba quando alguém <b>R</b>evoga, <b>M</b>orre, <b>C</b>oncluí o negócio ou <b>P</b>erde a capacidade: <b>R-M-C-P</b>.</div>
+<h4>Ratificação: o efeito retroativo</h4>
+<p>Se o representante age <b>sem poderes ou além deles</b>, o ato é <b>ineficaz</b> em relação ao representado, que pode <b>ratificar</b> depois.</p>
+<div class="lane"><div class="off" style="flex:3">Ato praticado sem poderes (ineficaz)</div><div class="ev">✍️ ratificação</div><div class="on" style="flex:3">Ato passa a valer, com efeitos <b>desde a data original</b></div></div>
+<div class="call prof"><span class="lb">🗣️ Fala do professor</span>A ratificação opera <b>ex tunc</b>: retroage à data do negócio, como se os poderes já existissem desde a celebração.</div>
+<div class="call"><span class="lb">🔗 Compare com a aula 7</span><b>Condição</b> = em regra <b>ex nunc</b>. <b>Ratificação</b> = <b>ex tunc</b>. <i>Tunc</i> = "então" (retroage). <i>Nunc</i> = "agora" (dali em diante).</div>
+
+<h3><span class="n">✅</span>Testar-se: Aula 08</h3>
+<div class="tools"><button type="button" data-open="a8">Abrir todas</button><button type="button" data-close="a8">Fechar todas</button></div>
+<details class="qa"><summary>1. Legitimidade e a regra de que ninguém age na esfera alheia.</summary><div class="ans"><p>Legitimidade é a pertinência subjetiva das partes em relação à situação concreta, o que autoriza agir sobre determinado bem ou direito. Só o titular pode dispor dele. A representação é a principal exceção, pois legitima licitamente um terceiro a agir em nome do titular.</p><p class="pt">🎯 Ligue legitimidade à titularidade sobre o objeto, e não só à capacidade.</p></div></details>
+<details class="qa"><summary>2. Representação legal × voluntária.</summary><div class="ans"><p><b>Legal:</b> decorre da lei (pais e filhos menores). <b>Voluntária ou convencional:</b> decorre da vontade do interessado, que outorga poderes por instrumento próprio, disciplinada sobretudo pelo mandato.</p><p class="pt">🎯 Origem do poder: a lei × a vontade do representado.</p></div></details>
+<details class="qa"><summary>3. Contemplatio domini e representação direta × indireta.</summary><div class="ans"><p>É a revelação, pelo representante, de que age em nome do representado (art. 118), essencial à boa-fé. Na <b>direta</b>, há revelação e os efeitos recaem diretamente sobre o representado. Na <b>indireta</b>, não há (o "laranja" ou "testa de ferro"): não é necessariamente ilícita, mas não gera de imediato efeitos diretos ao representado.</p><p class="pt">🎯 A ausência de revelação não torna a representação indireta automaticamente ilícita.</p></div></details>
+<details class="qa"><summary>4. Substabelecimento e seus limites.</summary><div class="ans"><p>O representante transfere a outra pessoa os poderes recebidos (outorga em segundo grau). Limita-se aos poderes originais, sem ampliá-los. Pode ocorrer sem o conhecimento do representado, mas o substabelecente responde pelos atos do substabelecido. O representado pode vedá-lo na procuração.</p><p class="pt">🎯 Não amplia poderes, e a responsabilidade varia com o conhecimento do representado.</p></div></details>
+<details class="qa"><summary>5. Agir sem poderes ou além deles. Ratificação e efeitos.</summary><div class="ans"><p>O ato é ineficaz em relação ao representado. Ele pode <b>ratificar</b>, e a ratificação tem efeitos <b>retroativos (ex tunc)</b> à data do negócio, como se os poderes existissem desde então, permitindo que ele se beneficie do ato.</p><p class="pt">🎯 Ex tunc, e não ex nunc.</p></div></details>
+</div></section>
+
+<!-- ============================ COLA ============================ -->
+<section class="aula final" id="cola" style="--acc:#14213d;--acc2:#e8590c">
+<header class="ah" style="background:#14213d"><div class="num">🧠</div><div class="txt"><h2>Cola geral de mnemônicos e pegadinhas</h2><div class="date">Para ler na véspera</div></div></header>
+<div class="body">
+<h3>Os mnemônicos</h3>
+<div class="cards">
+  <div class="card"><h4>Direitos da personalidade</h4><p><b>PAI + 4 I</b>: Personalíssimo, Absoluto, Extrapatrimonial + Intransmissível, Irrenunciável, Imprescritível, Indisponível.</p></div>
+  <div class="card"><h4>Imóvel</h4><p><b>NAIL</b>: Natureza, Acessão, Intelectual, Lei.</p></div>
+  <div class="card"><h4>Benfeitorias</h4><p><b>N-U-V</b>: Não cai, Usa melhor, Vaidade.</p></div>
+  <div class="card"><h4>Fruto × produto</h4><p><b>F</b>ruto <b>F</b>ica, <b>P</b>roduto <b>P</b>erde. Tipos: <b>N-I-C</b>.</p></div>
+  <div class="card"><h4>Parte integrante × pertença</h4><p><b>P</b>ertença = <b>P</b>ode tirar.</p></div>
+  <div class="card"><h4>Real × pessoal</h4><p>Real segue a <b>coisa</b> (erga omnes, sequela). Pessoal liga <b>pessoas</b> (inter partes).</p></div>
+  <div class="card"><h4>Classificações de atos</h4><p><b>P-O-M-N-D</b>: Patrimonialidade, Onerosidade, Momento, Número, Duração.</p></div>
+  <div class="card"><h4>Art. 104 e objeto</h4><p><b>A-O-F</b> e <b>L-P-D</b>.</p></div>
+  <div class="card"><h4>Vontade tácita × presumida</h4><p><b>T</b>erceiro lê × <b>P</b>rojeta a lei.</p></div>
+  <div class="card"><h4>Teorias</h4><p>Savigny <b>sente</b> (vontade). Jhering <b>jura</b> (declaração).</p></div>
+  <div class="card"><h4>Elementos acidentais</h4><p><b>C-T-E</b>: Cara-ou-coroa, Tempo, Eu-cumpro. Condição: <b>F-I-V</b>.</p></div>
+  <div class="card"><h4>Representação</h4><p><b>M-P-O</b> (Mandato, Procuração, Outorga). Extinção: <b>R-M-C-P</b>.</p></div>
+</div>
+
+<h3>Pegadinhas: o que mais se inverte</h3>
+<div class="tw"><table><tr><th>Se cair…</th><th>Lembre</th></tr>
+<tr><td>Irrenunciável × indisponível</td><td>Renunciar = abrir mão. Dispor = negociar ou alienar.</td></tr>
+<tr><td>Direito fundamental × da personalidade</td><td>Contraditório e ampla defesa são fundamentais, mas não da personalidade.</td></tr>
+<tr><td>Erga omnes × inter partes</td><td>Reais e da personalidade: contra todos. Pessoais: entre as partes.</td></tr>
+<tr><td>Coisa × bem</td><td>Areia natural é coisa, e não bem. Crédito é bem, e não coisa.</td></tr>
+<tr><td>Ato em sentido estrito × negócio</td><td>Lei define os efeitos × partes definem os efeitos.</td></tr>
+<tr><td>Existência × validade</td><td>Falta agente, objeto ou forma: inexistente. Falta capacidade, licitude ou forma legal: inválido.</td></tr>
+<tr><td>Suspensiva × resolutiva impossível</td><td>Suspensiva: nulo o negócio. Resolutiva: cláusula riscada.</td></tr>
+<tr><td>Condição × termo</td><td>Incerto × certo.</td></tr>
+<tr><td>Ex nunc × ex tunc</td><td>Condição: ex nunc. Ratificação: ex tunc.</td></tr>
+<tr><td>Administração geral</td><td>Não inclui alienar ou onerar. Exige poderes expressos e específicos.</td></tr></table></div>
+</div></section>
+
+<!-- ============================ CONFERIR ============================ -->
+<section class="aula final" id="conferir" style="--acc:#f08c00;--acc2:#e8590c">
+<header class="ah" style="background:#b45f06"><div class="num">⚠️</div><div class="txt"><h2>Pontos para conferir com a professora</h2><div class="date">Onde a apostila pode divergir da lei ou dos manuais</div></div></header>
+<div class="body">
+<p>Mantive o conteúdo da apostila, mas estes pontos merecem uma checada antes da P1. Em prova, responda como a professora ensinou. Estas dúvidas servem para você perguntar em aula.</p>
+<div class="tw"><table><tr><th>Ponto</th><th>O que a apostila diz</th><th>O que verificar</th></tr>
+<tr><td>Imagem post mortem e 70 anos</td><td>Imagem e direitos autorais protegidos por 70 anos</td><td>A Lei 9.610/98 fixa 70 anos para direitos patrimoniais de autor. Para a imagem, o CC (arts. 12 e 20) dá legitimidade a familiares, sem esse prazo.</td></tr>
+<tr><td>Navios e aeronaves</td><td>Imóveis por ficção legal</td><td>O CC os trata como bens móveis sujeitos a registro (e hipoteca).</td></tr>
+<tr><td>Bem de família</td><td>Sem limite de valor hoje</td><td>Art. 1.711 do CC (voluntário): até 1/3 do patrimônio líquido. Existe também o bem de família legal (Lei 8.009/90). O art. 833 citado é do CPC.</td></tr>
+<tr><td>Teoria da declaração</td><td>Jhering</td><td>Alguns manuais citam outros autores. O art. 112 do CC privilegia a intenção.</td></tr>
+<tr><td>Vontade presumida</td><td>Cita "presunção hominis"</td><td>Presunção <i>hominis</i> costuma ser judicial. A presunção legal é outra.</td></tr>
+<tr><td>Artigos da aula 7</td><td>Arts. 126 a 128 para suspensiva, resolutiva e impossível</td><td>Impossíveis: arts. 123 e 124. Suspensiva: art. 125. Resolutiva: arts. 127 e 128. Art. 126 trata de disposições na pendência.</td></tr>
+<tr><td>Inatos × derivados</td><td>Não consta (foi pedido por você)</td><td>Confira a classificação e os exemplos no seu caderno ou manual.</td></tr>
+<tr><td>Acessão intelectual e genéricos × individuais</td><td>Não constam</td><td>Foram incluídos a pedido. Confirme com a professora se cobra esses conceitos.</td></tr></table></div>
+</div></section>
+
+<footer>"Se Deus é por nós, quem será contra nós?" – O Mairan<small>Material de estudo derivado da apostila de Direito Civil II. Não substitui a legislação nem as orientações da professora.</small></footer>
+
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function get(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+
+  var th=get('dc2-theme'); if(th){root.setAttribute('data-theme',th)}
+  document.getElementById('theme').addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme');
+    if(!cur){cur=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'}
+    var n=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme',n); set('dc2-theme',n);
+  });
+
+  var done={};
+  try{done=JSON.parse(get('dc2-done')||'{}')}catch(e){done={}}
+  function paint(){
+    document.querySelectorAll('.done').forEach(function(b){
+      var a=b.getAttribute('data-a'), on=!!done[a];
+      b.classList.toggle('on',on); b.textContent=on?'☑ Revisada':'☐ Revisada';
+    });
+    document.querySelectorAll('#nav a[data-a]').forEach(function(l){
+      l.classList.toggle('ok',!!done[l.getAttribute('data-a')]);
+    });
+  }
+  document.querySelectorAll('.done').forEach(function(b){
+    b.addEventListener('click',function(){
+      var a=b.getAttribute('data-a'); done[a]=!done[a]; set('dc2-done',JSON.stringify(done)); paint();
+    });
+  });
+  paint();
+
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    if(t.classList&&t.classList.contains('rv')){t.classList.toggle('on');return}
+    var o=t.getAttribute&&t.getAttribute('data-open'), c=t.getAttribute&&t.getAttribute('data-close');
+    var id=o||c; if(!id) return;
+    var sec=document.getElementById(id);
+    sec.querySelectorAll('details.qa').forEach(function(d){d.open=!!o});
+  });
+})();
+</script>
+</body>
+</html>
